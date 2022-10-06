@@ -49,4 +49,7 @@ return require('packer').startup(function(use)
     use { "akinsho/toggleterm.nvim", tag = '*', config = function()
         require("plugins.toggle-term")
     end }
+
+    -- Additional Highlighter
+    use 'NvChad/nvim-colorizer.lua'
 end)
