@@ -52,4 +52,18 @@ return require('packer').startup(function(use)
 
     -- Additional Highlighter
     use 'NvChad/nvim-colorizer.lua'
+
+    -- Experimental
+    use { "anuvyklack/windows.nvim",
+        requires = {
+            "anuvyklack/middleclass",
+            "anuvyklack/animation.nvim"
+        },
+        config = function()
+            vim.o.winwidth = 10
+            vim.o.winminwidth = 10
+            vim.o.equalalways = false
+            require('windows').setup()
+        end
+    }
 end)
