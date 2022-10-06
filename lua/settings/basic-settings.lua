@@ -13,3 +13,9 @@ o.smartindent = true
 
 o.wrap = false
 g.mapleader = " "
+
+o.cmdheight = 0
+o.scrolloff = 4
+
+o.splitright = true
+o.splitbelow = true
