@@ -33,10 +33,10 @@ local function create_lazygit_big()
     })
 end
 
-vim.keymap.set("n", "<C-4>", function() -- lazygit_normal
+vim.keymap.set("n", "<C-5>", function() -- lazygit_normal
     shutdown_then_toggle_toggleterm_terminal(lazygit_normal, create_lazygit_normal)
 end, { silent = true })
 
-vim.keymap.set("n", "<C-5>", function() -- lazygit_big
+vim.keymap.set("n", "<C-4>", function() -- lazygit_big
     shutdown_then_toggle_toggleterm_terminal(lazygit_big, create_lazygit_big)
 end, { silent = true })
