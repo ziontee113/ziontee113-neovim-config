@@ -14,7 +14,7 @@ o.smartindent = true
 o.wrap = false
 g.mapleader = " "
 
-o.laststatus = 0
+vim.go.laststatus = 0
 o.cmdheight = 0
 o.scrolloff = 4
 

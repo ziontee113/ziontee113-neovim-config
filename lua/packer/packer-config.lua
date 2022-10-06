@@ -27,6 +27,8 @@ return require('packer').startup(function(use)
     -- LSP
     use { "williamboman/mason.nvim" }
     use 'neovim/nvim-lspconfig'
+    use 'simrat39/rust-tools.nvim'
+    use 'lvimuser/lsp-inlayhints.nvim'
 
     -- TreeSitter
     use({
