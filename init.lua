@@ -15,6 +15,7 @@ require("plugins.neo-tree.neo-tree-config")
 
 -- Intelligent Code Interaction
 require("lsp-config")
+require("null-ls-config")
 require("tree-sitter-config")
 require("luasnip-config")
 require("cmp-config")

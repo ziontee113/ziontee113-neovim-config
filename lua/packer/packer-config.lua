@@ -30,6 +30,9 @@ return require('packer').startup(function(use)
     use 'simrat39/rust-tools.nvim'
     use 'lvimuser/lsp-inlayhints.nvim'
 
+    -- Code Formatting
+    use 'jose-elias-alvarez/null-ls.nvim'
+
     -- TreeSitter
     use({
         "nvim-treesitter/nvim-treesitter",
