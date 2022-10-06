@@ -1,3 +1,4 @@
 plugin/
 !after/plugin/
 Session*.vim
+__tests/output.txt
