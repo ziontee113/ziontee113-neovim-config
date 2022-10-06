@@ -7,3 +7,5 @@ o.swapfile = false
 o.undofile = true
 
 vim.cmd [[set clipboard+=unnamedplus]]
+vim.cmd [[au BufEnter * :set formatoptions-=cro]]
+vim.cmd [[set nohlsearch]]

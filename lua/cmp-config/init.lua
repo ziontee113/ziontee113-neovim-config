@@ -1,10 +1,21 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 
+-- autopairs
+require("nvim-autopairs").setup()
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+
+cmp.event:on(
+    'confirm_done',
+    cmp_autopairs.on_confirm_done()
+)
+
+-- decorations
 local decorations = require("cmp-config.decorations")
 local border = decorations.border
 local kind_icons = decorations.kind_icons
 
+-- cmp setup
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -46,21 +57,6 @@ cmp.setup({
             end
         end, { "i", "s" }),
     },
-    formatting = {
-        fields = { "kind", "abbr", "menu" },
-        format = function(entry, vim_item)
-            vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-            vim_item.menu = ({
-                luasnip = "[LuaSnip]",
-                nvim_lsp = "[LSP]",
-            })[entry.source.name]
-            return vim_item
-        end,
-    },
-    sources = {
-        { name = "luasnip" },
-        { name = "nvim_lsp" },
-    },
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
         select = false,
@@ -75,8 +71,26 @@ cmp.setup({
             scrollbar = "║",
         },
     },
+    formatting = {
+        fields = { "kind", "abbr", "menu" },
+        format = function(entry, vim_item)
+            vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+            -- kind menu
+            vim_item.menu = ({
+                luasnip = "[LuaSnip]",
+                nvim_lsp = "[LSP]",
+            })[entry.source.name]
+            return vim_item
+        end,
+    },
+    -- sources
+    sources = {
+        { name = "luasnip" },
+        { name = "nvim_lsp" },
+    },
 })
 
+-- keymaps
 vim.keymap.set("c", "<C-n>", function()
     if cmp.visible() then
         cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })

@@ -34,6 +34,7 @@ return require('packer').startup(function(use)
         run = ":TSUpdate",
     })
     use 'nvim-treesitter/playground'
+    use "windwp/nvim-autopairs"
     use "windwp/nvim-ts-autotag"
     use "p00f/nvim-ts-rainbow"
 
