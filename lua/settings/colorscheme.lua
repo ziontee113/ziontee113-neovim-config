@@ -8,7 +8,7 @@ require("gruvbox").setup({
 	invert_signs = true,
 	invert_tabline = false,
 	invert_intend_guides = false,
-	inverse = true, -- invert background for search, diffs, statuslines and errors
+	inverse = false, -- invert background for search, diffs, statuslines and errors
 	contrast = "soft", -- can be "hard", "soft" or empty string
 	palette_overrides = {},
 	overrides = {},
@@ -23,4 +23,9 @@ vim.cmd([[
     hi FloatBorder guibg=NONE guifg=#b8b8b8
     hi Cursorline guibg=#0f0f0f
     hi VertSplit guifg=#0f0f0f guibg=NONE
+
+    set laststatus=0
+    hi StatusLine guifg=#1a1a1a guibg=NONE
+    hi StatusLineNC guifg=#1a1a1a  guibg=NONE
+    set statusline=%{repeat('─',winwidth('.'))}
 ]])

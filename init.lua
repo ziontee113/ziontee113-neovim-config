@@ -22,3 +22,6 @@ require("cmp-config")
 
 -- Additional Highlighting
 require("plugins.colorizer")
+
+-- Workspace Management
+require("plugins.tabby")

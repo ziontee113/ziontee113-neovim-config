@@ -64,7 +64,7 @@ return require("packer").startup(function(use)
 	-- Additional Highlighter
 	use("NvChad/nvim-colorizer.lua")
 
-	-- Experimental
+	-- Windows Animation
 	use({
 		"anuvyklack/windows.nvim",
 		requires = {
@@ -76,6 +76,33 @@ return require("packer").startup(function(use)
 			vim.o.winminwidth = 10
 			vim.o.equalalways = false
 			require("windows").setup()
+		end,
+	})
+
+	-- Tabby
+	use("nanozuki/tabby.nvim")
+
+	-- Color Picker
+	use({
+		"~/.config/nvim-custom-plugin/color-picker/",
+		cmd = { "PickColor", "PickColorInsert" },
+		config = function()
+			require("color-picker").setup({
+				["icons"] = { "ﱢ", "" },
+				["border"] = "rounded",
+				["keymap"] = {
+					["Q"] = "<Plug>ColorPickerCloseColorPicker",
+					["U"] = "<Plug>Slider5Decrease",
+					["O"] = "<Plug>Slider5Increase",
+				},
+			})
+		end,
+	})
+
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
 		end,
 	})
 end)
