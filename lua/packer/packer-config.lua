@@ -44,4 +44,9 @@ return require('packer').startup(function(use)
     -- CMP
     use "hrsh7th/nvim-cmp"
     use "hrsh7th/cmp-nvim-lsp"
+
+    -- Terminal
+    use { "akinsho/toggleterm.nvim", tag = '*', config = function()
+        require("plugins.toggle-term")
+    end }
 end)
