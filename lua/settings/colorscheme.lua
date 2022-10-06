@@ -16,4 +16,11 @@ require("gruvbox").setup({
   transparent_mode = false,
 })
 
-vim.cmd [[colorscheme gruvbox]]
+vim.cmd([[
+    colorscheme gruvbox
+    hi Normal guibg=NONE
+    hi NormalFloat guibg=NONE
+    hi PMenu guibg=NONE
+    hi FloatBorder guibg=NONE guifg=#b8b8b8
+    hi Cursorline guibg=#0f0f0f
+]])
