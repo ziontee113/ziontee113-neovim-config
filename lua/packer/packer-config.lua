@@ -10,7 +10,6 @@ return require("packer").startup(function(use)
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.0",
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 	use({
@@ -27,6 +26,13 @@ return require("packer").startup(function(use)
 			"kyazdani42/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		},
+		cmd = {
+			"NeoTreeRevealToggle",
+			"NeoTreeFloatToggle",
+		},
+		config = function()
+			require("plugins.neo-tree.neo-tree-config")
+		end,
 	})
 
 	-- LSP
@@ -116,4 +122,10 @@ return require("packer").startup(function(use)
 
 	-- Surround
 	use("kylechui/nvim-surround")
+
+	-- Mini
+	use("echasnovski/mini.nvim")
+
+	-- Syntax Tree Surfer
+	use("~/.config/nvim-custom-plugin/syntax-tree-surfer/")
 end)

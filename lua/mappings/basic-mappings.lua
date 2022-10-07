@@ -33,6 +33,8 @@ vim.keymap.set("n", "<C-P>", ":Telescope find_files<CR>")
 vim.keymap.set("n", "<C-9>", ":Telescope oldfiles<CR>")
 vim.keymap.set("n", "<C-G>", ":Telescope live_grep<CR>")
 vim.keymap.set("n", "<C-F>", ":Telescope current_buffer_fuzzy_find<CR>")
+vim.keymap.set("n", "=", ":Telescope help_tags<CR>")
+vim.keymap.set("n", "-", ":Telescope keymaps<CR>")
 
 -- Tab Navigation
 vim.keymap.set("n", "zp", function()

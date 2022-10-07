@@ -11,7 +11,6 @@ require("mappings.basic-mappings")
 
 -- File Navigation
 require("plugins.telescope.telescope-config")
-require("plugins.neo-tree.neo-tree-config")
 
 -- Intelligent Code Interaction
 require("lsp-config")
@@ -20,6 +19,8 @@ require("tree-sitter-config")
 require("luasnip-config")
 require("cmp-config")
 
+require("plugins.syntax-tree-surfer")
+
 -- Additional Highlighting
 require("plugins.colorizer")
 require("plugins.surround")
@@ -27,3 +28,6 @@ require("plugins.surround")
 -- Workspace Management
 require("plugins.tabby")
 require("plugins.sj")
+
+-- Mini.nvim
+require("mini.ai").setup()
