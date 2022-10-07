@@ -51,6 +51,7 @@ return require("packer").startup(function(use)
 	-- CMP
 	use("hrsh7th/nvim-cmp")
 	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-path")
 
 	-- Terminal
 	use({

@@ -27,6 +27,17 @@ vim.keymap.set("n", "\\", ":NeoTreeFloatToggle<CR>")
 
 -- Telescope
 vim.keymap.set("n", "<C-P>", ":Telescope find_files<CR>")
+vim.keymap.set("n", "<C-9>", ":Telescope oldfiles<CR>")
+vim.keymap.set("n", "<C-G>", ":Telescope live_grep<CR>")
+vim.keymap.set("n", "<C-F>", ":Telescope current_buffer_fuzzy_find<CR>")
+
+-- Tab Navigation
+vim.keymap.set("n", "zp", function()
+	vim.cmd("tabprev")
+end)
+vim.keymap.set("n", "zn", function()
+	vim.cmd("tabnext")
+end)
 
 -- Color Picker
 vim.keymap.set("n", "<C-c>", "<cmd>PickColor<cr>")
