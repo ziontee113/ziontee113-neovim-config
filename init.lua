@@ -25,3 +25,4 @@ require("plugins.colorizer")
 
 -- Workspace Management
 require("plugins.tabby")
+require("plugins.sj")

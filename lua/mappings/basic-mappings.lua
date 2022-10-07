@@ -39,6 +39,9 @@ vim.keymap.set("n", "zn", function()
 	vim.cmd("tabnext")
 end)
 
+-- Terminal
+vim.keymap.set("t", "", "<C-\\><C-n>")
+
 -- Color Picker
 vim.keymap.set("n", "<C-c>", "<cmd>PickColor<cr>")
 vim.keymap.set("i", "<C-c>", "<cmd>PickColorInsert<cr>")
