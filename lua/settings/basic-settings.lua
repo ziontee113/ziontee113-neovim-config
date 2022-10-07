@@ -1,5 +1,4 @@
 local o = vim.opt
-local g = vim.g
 
 --o.number = true
 --o.relativenumber = true
@@ -12,7 +11,7 @@ o.expandtab = true
 o.smartindent = true
 
 o.wrap = false
-g.mapleader = " "
+vim.g.mapleader = " "
 
 vim.cmd("set laststatus=0")
 o.cmdheight = 0

@@ -83,6 +83,11 @@ rt.setup({
 	},
 })
 
+-- cssls
+lspconfig["cssls"].setup({
+	on_attach = on_attach,
+})
+
 -- TypeScript Server
 require("typescript").setup({
 	disable_commands = false, -- prevent the plugin from creating Vim commands

@@ -111,6 +111,9 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- Experimental
+	-- Virtual Text Movement
 	use("woosaaahh/sj.nvim")
+
+	-- Surround
+	use("kylechui/nvim-surround")
 end)

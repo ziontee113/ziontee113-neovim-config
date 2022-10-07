@@ -5,6 +5,9 @@ vim.keymap.set("i", "<C-S>", "<Esc>:w<CR>")
 vim.keymap.set("n", "<C-7>", ":mks!<CR>")
 vim.keymap.set("n", "<C-0>", ":source Session.vim<CR>")
 
+-- Visual Mode
+vim.keymap.set("n", "vv", "viw")
+
 -- Windows Management
 local function cmd(command)
 	return table.concat({ "<Cmd>", command, "<CR>" })

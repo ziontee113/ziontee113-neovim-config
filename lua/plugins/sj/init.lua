@@ -12,7 +12,7 @@ sj.setup({
 		-- used in the cmd line when the pattern has no matches
 		SjWarning = { bold = false },
 	},
-	separator = ":", -- separator used to extract pattern and label from the user input
+	separator = ";", -- separator used to extract pattern and label from the user input
 
 	-- stylua: ignore
 	labels = {
