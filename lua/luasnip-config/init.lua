@@ -33,17 +33,13 @@ end, { silent = true })
 
 -- special function
 vim.keymap.set({ "i", "s" }, "<a-l>", function()
-	if vim.if_line_empty() then
-		print("line is empty")
+	if ls.choice_active() then
+		ls.change_choice(1)
 	else
-		if ls.choice_active() then
-			ls.change_choice(1)
-		else
-			-- print current time -- for testing out <a-l>
-			local t = os.date("*t")
-			local time = string.format("%02d:%02d:%02d", t.hour, t.min, t.sec)
-			print(time)
-		end
+		-- print current time -- for testing out <a-l>
+		local t = os.date("*t")
+		local time = string.format("%02d:%02d:%02d", t.hour, t.min, t.sec)
+		print(time)
 	end
 end)
 
