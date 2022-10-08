@@ -30,4 +30,8 @@ require("plugins.tabby")
 require("plugins.sj")
 
 -- Mini.nvim
-require("mini.ai").setup()
+require("mini.ai").setup() -- targets.vim
+
+-- Custom Scripts
+require("global-variables")
+require("custom-scripts")
