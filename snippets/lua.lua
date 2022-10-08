@@ -20,6 +20,31 @@ local {} = vim.api.nvim_create_augroup("{}")
 	keymaps = { "<C-J>au" },
 })
 
+-- Autocmd
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+vim.api.nvim_create_autocmd({{ "{}" }}, {{
+	pattern = "{}",
+	group = {},
+	callback = function()
+        {}
+	end,
+}})
+]=],
+		{
+			i(1, "Event"),
+			i(2, "*"),
+			i(3, "augroup"),
+			i(4, "-- TODO:"),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.lua" },
+	keymaps = { "<C-J>ac" },
+})
+
 -- Create Lua Snippet
 local createLuaSnippet_keymaps_fmt = fmt(
 	[[
