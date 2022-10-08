@@ -62,16 +62,35 @@ vim.api.nvim_create_autocmd({{ "{}" }}, {{
 	keymaps = { "<C-J>ac" },
 })
 
+-- ==== LuaSnip ==== --
+
+-- Snippet Node
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+sn({}, {{{}}})
+]=],
+		{
+			i(1, "1"),
+			i(2, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*/snippets/*.lua", "*/hydra-snippets/*.lua" },
+	keymaps = { "<C-K>sn" },
+})
+
 -- Create Lua Snippet
 local createLuaSnippet_keymaps_fmt = fmt(
 	[[
 target_table = {},
-  pattern = "{}",
+  pattern = {{ "{}" }},
   keymaps = {{ {} }},
   ]],
 	{
 		c(1, { t("snippets"), t("autosnippets") }),
-		i(2, ""),
+		sn(2, { t("*."), i(1, "") }),
 		i(3, ""),
 	}
 )
@@ -104,5 +123,5 @@ cs({
 	nodes = createLuaSnippet_fmt,
 	target_table = snippets,
 	pattern = { "*/snippets/*.lua", "*/hydra-snippets/*.lua" },
-	keymaps = { "<C-J>cs" },
+	keymaps = { "<C-K>c", "<C-J>cs" },
 })

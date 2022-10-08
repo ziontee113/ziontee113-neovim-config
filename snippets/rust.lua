@@ -5,6 +5,57 @@ local snippets, autosnippets, cs = {}, {}, require("luasnip-config.luasnip-utils
 
 -- Rust
 
+-- Print Debug
+
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+println!("{}")
+]=],
+		{
+			i(1, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-J><C-P>" },
+})
+
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+println!("{} {{:#?}}", {})
+]=],
+		{
+			i(1, ""),
+			i(2, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-J>p" },
+})
+
+-- Variable Declaration
+
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+let {} = {}
+]=],
+		{
+			i(1, ""),
+			i(2, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-J><C-K>" },
+})
+
 -- Function
 
 cs({
