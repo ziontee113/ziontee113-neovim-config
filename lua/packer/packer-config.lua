@@ -93,6 +93,11 @@ return require("packer").startup(function(use)
 	-- Tabby
 	use("nanozuki/tabby.nvim")
 
+	-- ======= Utilities ======= --
+
+	-- Syntax Tree Surfer
+	use("~/.config/nvim-custom-plugin/syntax-tree-surfer/")
+
 	-- Color Picker
 	use({
 		"~/.config/nvim-custom-plugin/color-picker/",
@@ -126,6 +131,11 @@ return require("packer").startup(function(use)
 	-- Mini
 	use("echasnovski/mini.nvim")
 
-	-- Syntax Tree Surfer
-	use("~/.config/nvim-custom-plugin/syntax-tree-surfer/")
+	-- Working Directory Changer
+	use({
+		"notjedi/nvim-rooter.lua",
+		config = function()
+			require("nvim-rooter").setup()
+		end,
+	})
 end)
