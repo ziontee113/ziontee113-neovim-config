@@ -82,6 +82,9 @@ vim.keymap.set("n", "gj", function() -- jump to all that you specify
 		"for_statement",
 		"while_statement",
 		"switch_statement",
+
+		"jsx_opening_element",
+		"jsx_self_closing_element",
 	})
 end)
 
@@ -117,6 +120,11 @@ require("syntax-tree-surfer").setup({
 		"for_statement",
 		"while_statement",
 		"switch_statement",
+
+		"jsx_opening_element",
+		"jsx_self_closing_element",
+
+		'((dot_index_expression) @cap (#eq? @cap "vim.keymap.set"))',
 	},
 	left_hand_side = "fdsawervcxqtzb",
 	right_hand_side = "jkl;oiu.,mpy/n",

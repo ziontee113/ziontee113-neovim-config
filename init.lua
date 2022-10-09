@@ -6,9 +6,6 @@ require("settings.basic-settings")
 require("settings.system-settings")
 require("settings.colorscheme")
 
--- Mappings
-require("mappings.basic-mappings")
-
 -- File Navigation
 require("plugins.telescope.telescope-config")
 
@@ -21,6 +18,10 @@ require("cmp-config")
 
 require("plugins.syntax-tree-surfer")
 
+-- Mappings
+require("mappings.basic-mappings")
+require("mappings.paragraph-jumping")
+
 -- Additional Highlighting
 require("plugins.colorizer")
 require("plugins.surround")
@@ -28,6 +29,9 @@ require("plugins.surround")
 -- Workspace Management
 require("plugins.tabby")
 require("plugins.sj")
+
+-- Yank Management
+require("plugins.neoclip")
 
 -- Mini.nvim
 require("mini.ai").setup() -- targets.vim

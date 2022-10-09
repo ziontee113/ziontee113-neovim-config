@@ -3,6 +3,7 @@ local telescope = require("telescope")
 
 telescope.setup({
 	defaults = {
+		dynamic_preview_title = true,
 		mappings = {
 			i = {
 				["<C-j>"] = actions.move_selection_next,
@@ -27,3 +28,4 @@ telescope.setup({
 })
 
 telescope.load_extension("fzf")
+telescope.load_extension("neoclip")

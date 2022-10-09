@@ -2,7 +2,6 @@
 vim.keymap.set("n", "<C-S>", ":w<CR>")
 vim.keymap.set("i", "<C-S>", "<Esc>:w<CR>")
 
-vim.keymap.set("n", "<C-7>", ":mks!<CR>")
 vim.keymap.set("n", "<C-0>", ":source Session.vim<CR>")
 
 -- Visual Mode
@@ -38,6 +37,15 @@ vim.keymap.set("n", "<C-G>", ":Telescope live_grep<CR>")
 vim.keymap.set("n", "<C-F>", ":Telescope current_buffer_fuzzy_find<CR>")
 vim.keymap.set("n", "=", ":Telescope help_tags<CR>")
 vim.keymap.set("n", "-", ":Telescope keymaps<CR>")
+
+vim.keymap.set("n", "<C-N>", function()
+	require("telescope").extensions.neoclip.neoclip({
+
+		layout_config = {
+			preview_width = 0.4,
+		},
+	})
+end)
 
 -- Tab Navigation
 vim.keymap.set("n", "zp", function()

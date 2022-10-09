@@ -124,6 +124,21 @@ require("typescript").setup({
 	},
 })
 
+-- Emmet
+
+lspconfig.emmet_ls.setup({
+	on_attach = on_attach,
+	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
+	init_options = {
+		html = {
+			options = {
+				-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+				["bem.enabled"] = true,
+			},
+		},
+	},
+})
+
 -- Sumneko Lua
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")

@@ -21,8 +21,6 @@ cmp.setup({
 	},
 
 	mapping = {
-		["<C-p>"] = cmp.mapping.select_prev_item(),
-		["<C-n>"] = cmp.mapping.select_next_item(),
 		["<A-u>"] = cmp.mapping.confirm({ select = true }),
 		["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
@@ -90,17 +88,17 @@ cmp.setup({
 })
 
 -- keymaps
-vim.keymap.set("c", "<C-n>", function()
+vim.keymap.set("i", "<C-n>", function()
 	if cmp.visible() then
 		cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
 	else
-		cmp.complete()
+		vim.cmd("Telescope neoclip")
 	end
 end)
-vim.keymap.set("c", "<C-p>", function()
+vim.keymap.set("i", "<C-p>", function()
 	if cmp.visible() then
 		cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
 	else
-		cmp.complete()
+		vim.cmd("Telescope neoclip")
 	end
 end)

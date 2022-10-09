@@ -54,6 +54,7 @@ return require("packer").startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("windwp/nvim-ts-autotag")
 	use("p00f/nvim-ts-rainbow")
+	use("nvim-treesitter/nvim-treesitter-textobjects")
 
 	-- LuaSnip
 	use("L3MON4D3/LuaSnip")
@@ -137,5 +138,13 @@ return require("packer").startup(function(use)
 		config = function()
 			require("nvim-rooter").setup()
 		end,
+	})
+
+	-- Yank Manager
+	use({
+		"AckslD/nvim-neoclip.lua",
+		requires = {
+			{ "kkharji/sqlite.lua", module = "sqlite" },
+		},
 	})
 end)
