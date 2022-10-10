@@ -114,7 +114,7 @@ cs({{
 		i(3, "_trigger"),
 		i(1, ""),
 		i(2, ""),
-		c(4, { t("target_table = snippets"), createLuaSnippet_keymaps_fmt, t("target_table = autosnippets") }),
+		c(4, { createLuaSnippet_keymaps_fmt, t("target_table = snippets"), t("target_table = autosnippets") }),
 	}
 )
 
