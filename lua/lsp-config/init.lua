@@ -65,6 +65,9 @@ local on_attach = function(client, bufnr)
 	require("lsp-inlayhints").on_attach(client, bufnr)
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 -- Language Servers
 local lspconfig = require("lspconfig")
 require("lsp-inlayhints").setup()
@@ -84,8 +87,10 @@ rt.setup({
 })
 
 -- cssls
+
 lspconfig["cssls"].setup({
 	on_attach = on_attach,
+	capabilities = capabilities,
 })
 
 -- TypeScript Server
@@ -126,18 +131,18 @@ require("typescript").setup({
 
 -- Emmet
 
-lspconfig.emmet_ls.setup({
-	on_attach = on_attach,
-	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
-	init_options = {
-		html = {
-			options = {
-				-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-				["bem.enabled"] = true,
-			},
-		},
-	},
-})
+-- lspconfig.emmet_ls.setup({
+-- 	on_attach = on_attach,
+-- 	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less" },
+-- 	init_options = {
+-- 		html = {
+-- 			options = {
+-- 				-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+-- 				["bem.enabled"] = true,
+-- 			},
+-- 		},
+-- 	},
+-- })
 
 -- Sumneko Lua
 local runtime_path = vim.split(package.path, ";")

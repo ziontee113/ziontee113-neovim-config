@@ -91,7 +91,7 @@ cs({
 #[tauri::command]
 fn {}({}: {}) -> {} {{
     {}
-}}]
+}}
 ]=],
 		{
 			i(1, "tauri_fn_name"),

@@ -147,4 +147,9 @@ return require("packer").startup(function(use)
 			{ "kkharji/sqlite.lua", module = "sqlite" },
 		},
 	})
+
+	-- Close Buffers
+	use({
+		"kazhala/close-buffers.nvim",
+	})
 end)

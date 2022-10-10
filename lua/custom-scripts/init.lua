@@ -18,3 +18,9 @@ vim.keymap.set("n", "<C-7>", function()
 	vim.cmd("cd " .. current_dir)
 	print("cd back to " .. current_dir)
 end)
+
+-- bdelete
+vim.keymap.set("n", "<C-8>", function()
+	require("close_buffers").delete({ type = "hidden", force = true })
+	print("force closed all hidden buffers")
+end)
