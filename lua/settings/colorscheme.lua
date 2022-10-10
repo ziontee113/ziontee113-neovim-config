@@ -28,4 +28,8 @@ vim.cmd([[
     hi StatusLine guifg=#1a1a1a guibg=NONE
     hi StatusLineNC guifg=#1a1a1a  guibg=NONE
     set statusline=%{repeat('─',winwidth('.'))}
+
+    hi LineNr guifg=#f38019
+    hi LineNrAbove guifg=#4e4136
+    hi LineNrBelow guifg=#4e4136
 ]])

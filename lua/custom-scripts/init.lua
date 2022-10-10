@@ -1,3 +1,5 @@
+require("custom-scripts.sign-column-size")
+
 -- CWD Custom Script
 
 local augroup = vim.api.nvim_create_augroup("CWD_Custom_Script", {})
