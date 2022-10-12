@@ -7,6 +7,9 @@ vim.keymap.set("n", "<C-0>", ":source Session.vim<CR>")
 -- Visual Mode
 vim.keymap.set("n", "vv", "viw")
 
+-- Treesitter
+vim.keymap.set("n", "zt", "<cmd>TSPlaygroundToggle<cr>")
+
 -- Windows Management
 local function cmd(command)
 	return table.concat({ "<Cmd>", command, "<CR>" })
@@ -31,6 +34,7 @@ vim.keymap.set("n", "<Leader><Leader>q", ":qa!<cr>")
 vim.keymap.set("n", "\\", ":NeoTreeFloatToggle<CR>")
 
 -- Telescope
+vim.keymap.set("n", "gh", ":Telescope highlights<CR>")
 vim.keymap.set("n", "<C-P>", ":Telescope find_files<CR>")
 vim.keymap.set("n", "<C-9>", ":Telescope oldfiles<CR>")
 vim.keymap.set("n", "<C-G>", ":Telescope live_grep<CR>")
@@ -46,6 +50,9 @@ vim.keymap.set("n", "<C-N>", function()
 		},
 	})
 end)
+
+-- Todo Comments
+vim.keymap.set("n", "<C-T>", ":TodoTelescope<CR>")
 
 -- Tab Navigation
 vim.keymap.set("n", "zp", function()

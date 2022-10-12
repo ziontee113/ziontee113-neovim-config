@@ -116,6 +116,11 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- Buffer Browser
+	use({
+		"~/.config/nvim-custom-plugin/buffer-browser.nvim/",
+	})
+
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
@@ -151,5 +156,10 @@ return require("packer").startup(function(use)
 	-- Close Buffers
 	use({
 		"kazhala/close-buffers.nvim",
+	})
+
+	-- Todo Comments
+	use({
+		"folke/todo-comments.nvim",
 	})
 end)

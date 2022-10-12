@@ -17,6 +17,7 @@ require("luasnip-config")
 require("cmp-config")
 
 require("plugins.syntax-tree-surfer")
+require("plugins.buffer-browser")
 
 -- Mappings
 require("mappings.basic-mappings")
@@ -32,6 +33,9 @@ require("plugins.sj")
 
 -- Yank Management
 require("plugins.neoclip")
+
+-- Todo Comments
+require("todo-comments").setup({})
 
 -- Mini.nvim
 require("mini.ai").setup() -- targets.vim

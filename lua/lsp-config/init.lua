@@ -12,9 +12,6 @@ local lsp_formatting = function(bufnr)
 	})
 end
 
--- if you want to set up formatting on save, you can use this as a callback
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
@@ -50,11 +47,13 @@ local on_attach = function(client, bufnr)
 		vim.lsp.buf.format({ async = true })
 	end, bufopts)
 
+	-- if you want to set up formatting on save, you can use this as a callback
+	local LspFormattingAugroup = vim.api.nvim_create_augroup("LspFormatting", {})
 	-- Code Formatting (from null-ls)
 	if client.supports_method("textDocument/formatting") then
-		vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		vim.api.nvim_clear_autocmds({ group = LspFormattingAugroup, buffer = bufnr })
 		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = augroup,
+			group = LspFormattingAugroup,
 			buffer = bufnr,
 			callback = function()
 				lsp_formatting(bufnr)

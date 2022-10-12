@@ -23,7 +23,7 @@ require("neoclip").setup({
 				paste = "<cr>",
 				paste_behind = "<c-p>",
 				replay = "<c-q>", -- replay a macro
-				delete = "<c-d>", -- delete an entry
+				delete = "<a-d>", -- delete an entry
 				custom = {},
 			},
 			n = {

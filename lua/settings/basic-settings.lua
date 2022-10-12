@@ -19,3 +19,5 @@ o.scrolloff = 4
 
 o.splitright = true
 o.splitbelow = true
+
+o.cursorline = true

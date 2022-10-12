@@ -1,4 +1,4 @@
-local augroup = vim.api.nvim_create_augroup("sign-column-size", {})
+-- local augroup = vim.api.nvim_create_augroup("sign-column-size", {})
 
 vim.api.nvim_create_autocmd({ "WinEnter" }, {
 	pattern = "*",
