@@ -17,7 +17,6 @@ require("luasnip-config")
 require("cmp-config")
 
 require("plugins.syntax-tree-surfer")
-require("plugins.buffer-browser")
 
 -- Mappings
 require("mappings.basic-mappings")
@@ -43,3 +42,14 @@ require("mini.ai").setup() -- targets.vim
 -- Custom Scripts
 require("global-variables")
 require("custom-scripts")
+
+-- Notify
+local notify = require("notify")
+vim.notify = notify
+notify.setup({
+	background_colour = "#000000",
+})
+
+--In Development
+vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/neo-minimap/]])
+require("plugins.neo-minimap")

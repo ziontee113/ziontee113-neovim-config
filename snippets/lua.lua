@@ -3,6 +3,8 @@
 ---@diagnostic disable-next-line: unused-local
 local snippets, autosnippets, cs = {}, {}, require("luasnip-config.luasnip-utils").create_snippet
 
+-- TODO: trigger last triggerred snippet
+
 -- Variable Declaration
 cs({
 	trigger = "_trigger",
@@ -17,7 +19,23 @@ local {} = {}
 	),
 	target_table = snippets,
 	pattern = { "*.lua" },
-	keymaps = { "<C-J>l" },
+	keymaps = { "<C-J><C-L>", "<C-L><C-L>" },
+})
+
+-- <C-?> shortcut
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+<C-{}>
+]=],
+		{
+			i(1, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.lua" },
+	keymaps = { "<C-L><C-C>" },
 })
 
 -- Augroup
