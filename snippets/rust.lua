@@ -5,6 +5,35 @@ local snippets, autosnippets, cs = {}, {}, require("luasnip-config.luasnip-utils
 
 -- Rust
 
+-- let match
+
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+let {} = match {} {{
+    Ok({}) => {},
+    Err({}) => {{
+        println!("{} {{:#?}}", {});
+        return;
+    }},
+}};
+]=],
+		{
+			i(1, ""),
+			i(2, ""),
+			i(3, "result"),
+			i(4, "result"),
+			i(5, "err"),
+			i(6, "error while "),
+			i(7, "err"),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-L><C-M>" },
+})
+
 -- Print Debug
 
 cs({
