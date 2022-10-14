@@ -48,6 +48,7 @@ local notify = require("notify")
 vim.notify = notify
 notify.setup({
 	background_colour = "#000000",
+	timeout = 2000,
 })
 
 --In Development

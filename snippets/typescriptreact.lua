@@ -3,6 +3,90 @@
 ---@diagnostic disable-next-line: unused-local
 local snippets, autosnippets, cs = {}, {}, require("luasnip-config.luasnip-utils").create_snippet
 
+-- HTML Elements --
+
+-- Button
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+                <button{}>{}</button>
+]=],
+		{
+			c(1, { i(1, ""), fmt([[ onClick={{{}}}]], { i(1, "") }, { dedent = false }) }),
+			i(2, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.tsx" },
+	keymaps = { "<C-h><C-b>" },
+})
+
+-- Div
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+<div{}>{}</div>
+]=],
+		{
+			i(1, ""),
+			i(2, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.tsx" },
+	keymaps = { "<C-h><C-d>" },
+})
+
+-- Function
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+function {}({}) {{
+    {}
+}}
+]=],
+		{
+			i(1, ""),
+			i(2, ""),
+			i(3, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.tsx" },
+	keymaps = { "<C-j><C-f>" },
+})
+
+-- Functional Component
+cs({
+	trigger = "rfce",
+	nodes = fmt(
+		[=[
+function {}() {{
+  return (
+    <>
+      {}
+    </>
+  )
+}}
+
+export default {};
+]=],
+		{
+			d(1, function()
+				return sn(nil, i(1, vim.fn.expand("%:t:r")))
+			end),
+			i(2, ""),
+			rep(1),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.tsx" },
+	keymaps = { "<C-j><C-k>" },
+})
+
 -- React className
 cs({
 	trigger = "_trigger",
@@ -45,5 +129,5 @@ let [{}, {}] = useState({});
 	),
 	target_table = snippets,
 	pattern = { "*.tsx", "*.ts" },
-	keymaps = { "<C-L><C-S>" },
+	keymaps = { "<C-U><C-S>" },
 })

@@ -20,6 +20,9 @@ nm.set("zi", "lua", {
 		{ "keymap", "<C-l>", true },
 		{ "keymap", "<C-h>", false },
 	},
+	-- width = 22,
+	-- height = 30,
+	regex = { [[\.insert]] },
 })
 
 -- TSX

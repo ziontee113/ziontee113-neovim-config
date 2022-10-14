@@ -2,6 +2,7 @@
 require("mason").setup()
 
 -- Code Formatting (from null-ls)
+local LspFormattingAugroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local lsp_formatting = function(bufnr)
 	vim.lsp.buf.format({
 		filter = function(client)
@@ -30,7 +31,7 @@ local on_attach = function(client, bufnr)
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+	vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", bufopts)
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
 	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
 	--vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
@@ -48,7 +49,6 @@ local on_attach = function(client, bufnr)
 	end, bufopts)
 
 	-- if you want to set up formatting on save, you can use this as a callback
-	local LspFormattingAugroup = vim.api.nvim_create_augroup("LspFormatting", {})
 	-- Code Formatting (from null-ls)
 	if client.supports_method("textDocument/formatting") then
 		vim.api.nvim_clear_autocmds({ group = LspFormattingAugroup, buffer = bufnr })

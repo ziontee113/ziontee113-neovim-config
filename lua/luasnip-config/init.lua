@@ -8,17 +8,12 @@ ls.config.set_config({
 	enable_autosnippets = true,
 })
 
--- Key Mapping
-
-vim.keymap.set({ "i", "s" }, "<c-u>", '<cmd>lua require("luasnip.extras.select_choice")()<cr><C-c><C-c>')
-
+-- Keymaps
 vim.keymap.set({ "i", "s" }, "<a-p>", function()
 	if ls.expand_or_jumpable() then
 		ls.expand()
 	end
 end, { silent = true })
-
-vim.keymap.set({ "i", "s" }, "<A-y>", "<Esc>o", { silent = true })
 
 vim.keymap.set({ "i", "s" }, "<a-k>", function()
 	if ls.jumpable(1) then
