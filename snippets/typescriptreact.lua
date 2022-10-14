@@ -30,7 +30,7 @@ cs({
 <div{}>{}</div>
 ]=],
 		{
-			i(1, ""),
+			c(1, { i(1, ""), fmt([[ className={}]], { i(1, "") }, { dedent = false }) }),
 			i(2, ""),
 		}
 	),
@@ -39,7 +39,7 @@ cs({
 	keymaps = { "<C-h><C-d>" },
 })
 
--- Function
+-- Regular Function
 cs({
 	trigger = "_trigger",
 	nodes = fmt(
@@ -51,12 +51,12 @@ function {}({}) {{
 		{
 			i(1, ""),
 			i(2, ""),
-			i(3, ""),
+			i(3, "//"),
 		}
 	),
 	target_table = snippets,
 	pattern = { "*.tsx" },
-	keymaps = { "<C-j><C-f>" },
+	keymaps = { "<C-j><C-f>", "<C-j>f" },
 })
 
 -- Functional Component
@@ -130,4 +130,23 @@ let [{}, {}] = useState({});
 	target_table = snippets,
 	pattern = { "*.tsx", "*.ts" },
 	keymaps = { "<C-U><C-S>" },
+})
+
+-- useEffect Hook
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+useEffect(() => {{
+    {}
+}}{})
+]=],
+		{
+			i(1, "//"),
+			c(2, { i(""), fmt([=[, [{}]]=], i(1, "")) }),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.tsx" },
+	keymaps = { "<C-u><C-e>" },
 })

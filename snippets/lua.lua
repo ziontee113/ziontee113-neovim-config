@@ -99,6 +99,22 @@ sn({}, {{{}}})
 	keymaps = { "<C-K>sn" },
 })
 
+-- LuaSnip Insert Node
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+i(1, "{}"),
+]=],
+		{
+			i(1, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*/snippets/*.lua", "*/hydra-snippets/*.lua" },
+	keymaps = { "<C-j><C-k>" },
+})
+
 -- Create Lua Snippet
 local createLuaSnippet_keymaps_fmt = fmt(
 	[[
