@@ -30,6 +30,11 @@ vim.keymap.set("n", "<Leader><Leader>q", ":qa!<cr>")
 
 -- Plugin Mappings
 
+-- TypeScript
+
+vim.keymap.set("n", "<Leader>II", ":TypescriptAddMissingImports<CR>")
+vim.keymap.set("n", "<Leader>IO", ":TypescriptOrganizeImports<CR>")
+
 -- Neo Tree
 vim.keymap.set("n", "\\", ":NeoTreeFloatToggle<CR>")
 
