@@ -6,10 +6,8 @@ nm.set("zi", "lua", {
 ;; query
 ((for_statement) @cap)
 ((function_call (dot_index_expression) @field (#eq? @field "vim.keymap.set")) @cap)
-
 ((function_declaration) @cap)
 ((assignment_statement(expression_list((function_definition) @cap))))
-
 ((function_call (identifier)) @cap (#vim-match? @cap "^__*" ))
   ]],
 	search_patterns = {
@@ -17,29 +15,25 @@ nm.set("zi", "lua", {
 		{ "function", "<C-k>", false },
 		{ "keymap", "<A-j>", true },
 		{ "keymap", "<A-k>", false },
-		{ "keymap", "<C-l>", true },
-		{ "keymap", "<C-h>", false },
 	},
-	-- width = 22,
-	-- height = 30,
 	regex = { [[\.insert]] },
-
-	open_win_opts = {
-		border = "double",
-	},
-	win_opts = {
-		scrolloff = 1,
-	},
+	open_win_opts = { border = "double" },
+	win_opts = { scrolloff = 1 },
 })
 
 -- Lua Snippets
-nm.set("zo", "*/snippets/*.lua", {
-	regex = { [[--.*\w]] },
-	events = { "BufEnter" },
-})
+vim.keymap.set("n", "zo", function()
+	nm.browse({
+		query = [[
+;; query
+((function_declaration) @cap)
+  ]],
+		hotswap = true,
+	})
+end)
 
 -- TSX
-nm.set("zi", "typescriptreact", {
+nm.set("zi", { "typescriptreact", "javascriptreact" }, {
 	query = [[
 ;; query
 ((function_declaration) @cap)

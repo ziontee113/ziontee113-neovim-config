@@ -15,6 +15,9 @@ telescope.setup({
 		find_files = {
 			find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
 		},
+		lsp_dynamic_workspace_symbols = {
+			file_ignore_patterns = { "node_modules/" },
+		},
 	},
 	extensions = {
 		fzf = {
