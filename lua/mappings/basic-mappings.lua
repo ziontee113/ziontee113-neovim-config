@@ -41,6 +41,7 @@ vim.keymap.set("n", "<C-G>", ":Telescope live_grep<CR>")
 vim.keymap.set("n", "<C-F>", ":Telescope current_buffer_fuzzy_find<CR>")
 vim.keymap.set("n", "=", ":Telescope help_tags<CR>")
 vim.keymap.set("n", "-", ":Telescope keymaps<CR>")
+vim.keymap.set("n", "<Leader>N", ":Telescope notify<CR>")
 
 vim.keymap.set("n", "<C-N>", function()
 	require("telescope").extensions.neoclip.neoclip({

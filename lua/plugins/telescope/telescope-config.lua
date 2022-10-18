@@ -29,3 +29,4 @@ telescope.setup({
 
 telescope.load_extension("fzf")
 telescope.load_extension("neoclip")
+telescope.load_extension("notify")

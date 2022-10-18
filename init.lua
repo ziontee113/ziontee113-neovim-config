@@ -43,6 +43,10 @@ require("mini.ai").setup() -- targets.vim
 require("global-variables")
 require("custom-scripts")
 
+--In Development
+vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/neo-minimap/]])
+require("plugins.neo-minimap")
+
 -- Notify
 local notify = require("notify")
 vim.notify = notify
@@ -50,7 +54,3 @@ notify.setup({
 	background_colour = "#000000",
 	timeout = 2000,
 })
-
---In Development
-vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/neo-minimap/]])
-require("plugins.neo-minimap")
