@@ -5,6 +5,24 @@ local snippets, autosnippets, cs = {}, {}, require("luasnip-config.luasnip-utils
 
 -- HTML Elements --
 
+-- Headings
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+<{}>{}</{}>
+]=],
+		{
+			c(1, { t("h1"), t("h2"), t("h3"), t("h4"), t("h5"), t("h6") }),
+			i(2, ""),
+			rep(1),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.tsx" },
+	keymaps = { "<C-h><C-h>" },
+})
+
 -- Button
 cs({
 	trigger = "_trigger",

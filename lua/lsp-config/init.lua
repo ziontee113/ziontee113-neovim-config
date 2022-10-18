@@ -128,6 +128,9 @@ require("typescript").setup({
 	},
 })
 
+-- Tailwind CSS
+lspconfig.tailwindcss.setup({})
+
 -- Emmet
 
 -- lspconfig.emmet_ls.setup({

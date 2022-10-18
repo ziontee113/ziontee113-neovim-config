@@ -4,6 +4,7 @@ require("nvim-surround").setup({
 		["k"] = ")",
 		["l"] = "]",
 		["h"] = '"',
+		["q"] = '"',
 	},
 	keymaps = {
 		insert = "<C-g>s",

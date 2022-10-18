@@ -23,6 +23,19 @@ nm.set("zi", "lua", {
 	-- width = 22,
 	-- height = 30,
 	regex = { [[\.insert]] },
+
+	open_win_opts = {
+		border = "double",
+	},
+	win_opts = {
+		scrolloff = 1,
+	},
+})
+
+-- Lua Snippets
+nm.set("zo", "*/snippets/*.lua", {
+	regex = { [[--.*\w]] },
+	events = { "BufEnter" },
 })
 
 -- TSX
