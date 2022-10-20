@@ -95,6 +95,22 @@ cs({
 	keymaps = { "<C-j><C-o><C-s>" },
 })
 
+-- N() for Notify
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+N({})
+]=],
+		{
+			c(1, { fmt([["{}"]], i(1, "")), i(1, "") }),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*/.config/nvim/*.lua" },
+	keymaps = { "<C-j><C-n>" },
+})
+
 -- ==== LuaSnip ==== --
 
 -- LuaSnip Snippet Node
