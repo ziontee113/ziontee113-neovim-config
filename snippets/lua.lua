@@ -80,6 +80,21 @@ vim.api.nvim_create_autocmd({{ "{}" }}, {{
 	keymaps = { "<C-J>ac" },
 })
 
+-- Execute On Save
+cs({
+	trigger = "onsave",
+	nodes = fmt(
+		[=[
+-- {{{nvim-execute-on-save}}}
+]=],
+		{},
+		{ delimiters = "<>" }
+	),
+	target_table = snippets,
+	pattern = { "*/.config/nvim/*.lua" },
+	keymaps = { "<C-j><C-o><C-s>" },
+})
+
 -- ==== LuaSnip ==== --
 
 -- LuaSnip Snippet Node

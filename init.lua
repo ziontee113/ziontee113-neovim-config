@@ -43,6 +43,9 @@ require("mini.ai").setup() -- targets.vim
 require("global-variables")
 require("custom-scripts")
 
+-- Custom Autocmds
+require("autocmds.execute-on-save")
+
 --In Development
 vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/neo-minimap/]])
 require("plugins.neo-minimap")
