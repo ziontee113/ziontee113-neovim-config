@@ -15,6 +15,12 @@ nm.set({ "zi", "zo", "zu" }, "*.lua", {
 		1,
 		[[
     ;; query
+    ((function_declaration) @cap)
+    ((assignment_statement(expression_list((function_definition) @cap))))
+    ((field (identifier) @cap) (#eq? @cap "keymaps"))
+    ]],
+		[[
+    ;; query
     ((for_statement) @cap)
     ((function_declaration) @cap)
     ((assignment_statement(expression_list((function_definition) @cap))))
@@ -33,6 +39,7 @@ nm.set({ "zi", "zo", "zu" }, "*.lua", {
 	regex = {
 		{},
 		{ [[^\s*--\s\+\w\+]], [[--\s*=]] },
+		{ [[^\s*--\s\+\w\+]], [[--\s*=]] },
 		{},
 	},
 
@@ -44,9 +51,11 @@ nm.set({ "zi", "zo", "zu" }, "*.lua", {
 	},
 
 	-- auto_jump = false,
-	height_toggle = { 12, 5, 36 },
+	height_toggle = { 12, 36 },
 	-- open_win_opts = { border = "double" },
 	win_opts = { scrolloff = 1 },
+
+	-- disable_indentaion = true,
 })
 
 -- Typescript React

@@ -4,6 +4,7 @@
 local snippets, autosnippets, cs = {}, {}, require("luasnip-config.luasnip-utils").create_snippet
 
 -- TODO: trigger last triggerred snippet
+-- TODO: use Neo-Minimap to quickly view the keymaps for snippets
 
 -- Variable Declaration
 cs({
@@ -109,6 +110,33 @@ N({})
 	target_table = snippets,
 	pattern = { "*/.config/nvim/*.lua" },
 	keymaps = { "<C-j><C-n>" },
+})
+
+-- vim.keymap.set
+
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+vim.keymap.set("{}", "{}", {}, {{{}}})
+]=],
+		{
+			c(1, { i(1, "n"), i(1, "x") }),
+			i(2, "keymap"),
+			c(3, { fmt(
+				[[
+function()
+    {}
+end
+            ]],
+				i(1, "")
+			), fmt([["{}"]], i(1, "")) }),
+			i(4, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.lua" },
+	keymaps = { "<C-k><C-s>" },
 })
 
 -- ==== LuaSnip ==== --

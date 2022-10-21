@@ -13,4 +13,6 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 	end,
 })
 
+-- TODO: buffer browser as normal, but Hop gets activated when you press a <keymap>
+
 -- {{{nvim-execute-on-save}}}

@@ -9,6 +9,7 @@ vim.keymap.set("n", "vv", "viw")
 
 -- Treesitter
 vim.keymap.set("n", "zt", "<cmd>TSPlaygroundToggle<cr>")
+vim.keymap.set("n", "<Leader>t", "<cmd>TSPlaygroundToggle<cr>")
 
 -- Windows Management
 local function cmd(command)
@@ -80,3 +81,5 @@ vim.keymap.set("i", "<C-c>", "<cmd>PickColorInsert<cr>")
 -- Comment
 vim.keymap.set("n", "", "gcc", { remap = true })
 vim.keymap.set("x", "", "gc", { remap = true })
+
+-- {{{nvim-execute-on-save}}}
