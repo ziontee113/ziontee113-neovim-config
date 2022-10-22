@@ -112,12 +112,35 @@ N({})
 	keymaps = { "<C-j><C-n>" },
 })
 
+-- vim.api.nvim_buf_set_extmark
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+vim.api.nvim_buf_set_extmark({}, {}, {}, {}, {{
+    virt_text = {{ {{ "{}", "{}" }} }}
+}})
+]=],
+		{
+			i(1, "0"),
+			i(2, "ns"),
+			i(3, "line"),
+			i(4, "col"),
+			i(5, "text"),
+			i(6, "Normal"),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.lua" },
+	keymaps = { "<C-j><C-x>" },
+})
+
 -- vim.api.nvim_buf_clear_namespace
 cs({
 	trigger = "_trigger",
 	nodes = fmt(
 		[=[
-vim.api.nvim_clear_namespace({}, {}, {}, {})
+vim.api.nvim_buf_clear_namespace({}, {}, {}, {})
 ]=],
 		{
 			i(1, "0"),
@@ -131,7 +154,7 @@ vim.api.nvim_clear_namespace({}, {}, {}, {})
 	keymaps = { "<C-k>ns" },
 })
 
--- vim.api.nvim_create_namespace
+-- vim.api.nvim_buf_create_namespace
 cs({
 	trigger = "namespace",
 	nodes = fmt(
