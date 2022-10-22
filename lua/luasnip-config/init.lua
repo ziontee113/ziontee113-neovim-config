@@ -44,6 +44,25 @@ vim.keymap.set({ "i", "s" }, "<a-h>", function()
 	end
 end)
 
+-- jump to index (id) of current snippet
+local function snip_jump_to_id(id)
+	local session = require("luasnip.session")
+	local current = session.current_nodes[vim.api.nvim_get_current_buf()]
+	local snip = current and current.parent.snippet or nil
+	local end_node = snip.insert_nodes[id]
+
+	while end_node and ls.jumpable(1) do
+		local current = session.current_nodes[vim.api.nvim_get_current_buf()]
+		if current == end_node then
+			break
+		end
+		ls.jump(1)
+	end
+end
+vim.keymap.set({ "i", "s" }, "<a-;>", function()
+	snip_jump_to_id(0)
+end, {})
+
 --Unlink Snippets Command
 vim.api.nvim_create_user_command("UnlinkSnippets", function() --{{{
 	local session = require("luasnip.session")
@@ -67,3 +86,4 @@ vim.api.nvim_create_user_command("UnlinkSnippets", function() --{{{
 end, { desc = "Unlink all open snippets" }) --}}}
 
 vim.keymap.set("n", "<C-S-U>", ":UnlinkSnippets<cr>", { silent = true })
+-- {{{nvim-execute-on-save}}}
