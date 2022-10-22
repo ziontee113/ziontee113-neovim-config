@@ -1,6 +1,6 @@
 local group = vim.api.nvim_create_augroup("Execute On Save", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePost", {
-	pattern = "*/.config/nvim/*.lua",
+	pattern = "*/.config/*.lua",
 	group = group,
 	callback = function()
 		--get the last line of the buffer

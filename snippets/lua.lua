@@ -92,7 +92,7 @@ cs({
 		{ delimiters = "<>" }
 	),
 	target_table = snippets,
-	pattern = { "*/.config/nvim/*.lua" },
+	pattern = { "*/.config/*.lua" },
 	keymaps = { "<C-j><C-o><C-s>" },
 })
 
@@ -108,12 +108,47 @@ N({})
 		}
 	),
 	target_table = snippets,
-	pattern = { "*/.config/nvim/*.lua" },
+	pattern = { "*/.config/*.lua" },
 	keymaps = { "<C-j><C-n>" },
 })
 
--- vim.keymap.set
+-- vim.api.nvim_buf_clear_namespace
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+vim.api.nvim_clear_namespace({}, {}, {}, {})
+]=],
+		{
+			i(1, "0"),
+			i(2, "ns"),
+			i(3, "0"),
+			i(4, "-1"),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.lua" },
+	keymaps = { "<C-k>ns" },
+})
 
+-- vim.api.nvim_create_namespace
+cs({
+	trigger = "namespace",
+	nodes = fmt(
+		[=[
+local {} = vim.api.nvim_create_namespace("{}")
+]=],
+		{
+			i(1, "ns"),
+			i(2, "namespace_name"),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.lua" },
+	keymaps = { "<C-j>ns" },
+})
+
+-- vim.keymap.set
 cs({
 	trigger = "_trigger",
 	nodes = fmt(
@@ -137,6 +172,20 @@ end
 	target_table = snippets,
 	pattern = { "*.lua" },
 	keymaps = { "<C-k><C-s>" },
+})
+
+-- vim.api
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+vim.api
+]=],
+		{}
+	),
+	target_table = snippets,
+	pattern = { "*.lua" },
+	keymaps = { "<C-j><C-a>" },
 })
 
 -- ==== LuaSnip ==== --

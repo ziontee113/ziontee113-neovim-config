@@ -2,6 +2,17 @@ local nm = require("neo-minimap")
 
 nm.source_on_save("/home/ziontee113/.config/nvim/lua/plugins/neo-minimap/")
 
+-- Latex
+
+nm.set({ "zo", "zu" }, "*.tex", {
+	events = { "BufEnter" },
+	query = {},
+	regex = {
+		{ [[\\section]], [[\\subsection]], [[\\subsubsection]] },
+		{ [[\\begin{.*}]] },
+	},
+})
+
 -- Lua
 nm.set({ "zi", "zo", "zu" }, "*.lua", {
 	events = { "BufEnter" },
