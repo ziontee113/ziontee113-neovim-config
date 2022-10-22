@@ -179,9 +179,15 @@ cs({
 	trigger = "_trigger",
 	nodes = fmt(
 		[=[
-vim.api
+{}
 ]=],
-		{}
+		{
+			c(1, {
+				t("vim.api."),
+				fmt([[vim.api.nvim_buf_{}({})]], { i(1, ""), i(2, "") }),
+				fmt([[vim.api.nvim_win_{}({})]], { i(1, ""), i(2, "") }),
+			}),
+		}
 	),
 	target_table = snippets,
 	pattern = { "*.lua" },
