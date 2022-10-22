@@ -3,7 +3,7 @@ local ls = require("luasnip")
 local augroup = vim.api.nvim_create_augroup("Custom Luasnip", { clear = true })
 
 function M.create_snippet(opts)
-	local snippet = ls.s(opts.trigger, opts.nodes)
+	local snippet = ls.s(opts.trigger, opts.nodes, opts.opts)
 
 	if opts.keymaps then
 		for _, keymap in ipairs(opts.keymaps) do

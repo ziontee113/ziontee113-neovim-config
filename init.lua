@@ -50,6 +50,12 @@ require("autocmds.execute-on-save")
 vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/neo-minimap/]])
 require("plugins.neo-minimap")
 
+vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/query-secretary/]])
+require("query-secretary")
+vim.keymap.set("n", "<Leader>r", function()
+	R("query-secretary")
+end, {})
+
 -- Notify
 local notify = require("notify")
 vim.notify = notify

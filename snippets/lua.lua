@@ -6,7 +6,49 @@ local snippets, autosnippets, cs = {}, {}, require("luasnip-config.luasnip-utils
 -- TODO: trigger last triggerred snippet
 -- TODO: use Neo-Minimap to quickly view the keymaps for snippets
 
--- Variable Declaration
+-- ==== Lua ==== --
+
+-- local function
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+local function {}({})
+    {}
+end
+]=],
+		{
+			i(1, "name"),
+			i(2, ""),
+			i(3, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.lua" },
+	keymaps = { "<C-j>f" },
+})
+
+-- M. function
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+M.{} = function({})
+    {}
+end
+]=],
+		{
+			i(1, "name"),
+			i(2, ""),
+			i(3, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.lua" },
+	keymaps = { "<C-k>f" },
+})
+
+-- local
 cs({
 	trigger = "_trigger",
 	nodes = fmt(

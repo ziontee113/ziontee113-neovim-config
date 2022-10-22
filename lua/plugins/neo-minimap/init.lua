@@ -1,5 +1,9 @@
 local nm = require("neo-minimap")
 
+nm.setup_defaults({
+	height_toggle = { 12, 36 },
+	hl_group = "DiagnosticWarn",
+})
 nm.source_on_save("/home/ziontee113/.config/nvim/lua/plugins/neo-minimap/")
 
 -- Latex
@@ -49,8 +53,8 @@ nm.set({ "zi", "zo", "zu" }, "*.lua", {
 
 	regex = {
 		{},
-		{ [[^\s*--\s\+\w\+]], [[--\s*=]] },
-		{ [[^\s*--\s\+\w\+]], [[--\s*=]] },
+		{ [[^\s*---*\s\+\w\+]], [[--\s*=]] },
+		{ [[^\s*---*\s\+\w\+]], [[--\s*=]] },
 		{},
 	},
 
@@ -62,7 +66,6 @@ nm.set({ "zi", "zo", "zu" }, "*.lua", {
 	},
 
 	-- auto_jump = false,
-	height_toggle = { 12, 36 },
 	-- open_win_opts = { border = "double" },
 	win_opts = { scrolloff = 1 },
 
