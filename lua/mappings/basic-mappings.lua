@@ -29,6 +29,9 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<Leader>q", ":q<cr>")
 vim.keymap.set("n", "<Leader><Leader>q", ":qa!<cr>")
 
+-- Help Search
+vim.keymap.set("n", "<A-;>", ":vert help <C-r><C-w><CR>", {})
+
 -- Plugin Mappings
 
 -- TypeScript

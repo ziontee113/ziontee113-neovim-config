@@ -160,7 +160,8 @@ cs({
 	nodes = fmt(
 		[=[
 vim.api.nvim_buf_set_extmark({}, {}, {}, {}, {{
-    virt_text = {{ {{ "{}", "{}" }} }}
+    virt_text = {{ {{ "{}", "{}" }} }},
+    virt_text_pos = "{}",
 }})
 ]=],
 		{
@@ -170,6 +171,7 @@ vim.api.nvim_buf_set_extmark({}, {}, {}, {}, {{
 			i(4, "col"),
 			i(5, "text"),
 			i(6, "Normal"),
+			i(7, "overlay"),
 		}
 	),
 	target_table = snippets,
