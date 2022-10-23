@@ -6,6 +6,23 @@ local snippets, autosnippets, cs = {}, {}, require("luasnip-config.luasnip-utils
 -- TODO: trigger last triggerred snippet
 -- TODO: use Neo-Minimap to quickly view the keymaps for snippets
 
+-- ==== Comments ==== --
+cs({
+	trigger = "todo",
+	nodes = fmt(
+		[=[
+-- {}: {}
+]=],
+		{
+			c(1, { t("TODO"), t("FIX"), t("HACK"), t("BUG") }),
+			i(2, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.lua" },
+	keymaps = { "<a-,>" },
+})
+
 -- ==== Lua ==== --
 
 -- local function
