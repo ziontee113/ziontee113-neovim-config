@@ -250,7 +250,7 @@ end
             ]],
 				i(1, "")
 			), fmt([["{}"]], i(1, "")) }),
-			i(4, ""),
+			c(4, { i(1, ""), fmt([[ buffer = {} ]], { i(1, "buf") }, { dedent = false }) }),
 		}
 	),
 	target_table = snippets,

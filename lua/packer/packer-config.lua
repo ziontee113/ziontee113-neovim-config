@@ -160,4 +160,7 @@ return require("packer").startup(function(use)
 
 	-- Notify
 	use("rcarriga/nvim-notify")
+
+	-- DevOnDuty Better Variable Highlighting
+	use("David-Kunz/markid")
 end)
