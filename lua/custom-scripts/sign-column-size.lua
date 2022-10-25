@@ -2,6 +2,7 @@ local augroup = vim.api.nvim_create_augroup("sign-column-size", {})
 local black_list_filetypes = {
 	"",
 	"help",
+	"tsplayground",
 }
 
 vim.api.nvim_create_autocmd({ "WinEnter" }, {

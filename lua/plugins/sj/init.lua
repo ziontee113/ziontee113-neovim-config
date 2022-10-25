@@ -1,7 +1,7 @@
 local sj = require("sj")
 sj.setup({
-	auto_jump = true,
-	use_overlay = true,
+	auto_jump = false,
+	use_overlay = false,
 	highlights = {
 		-- used for the labels
 		SjLabel = { bold = false },

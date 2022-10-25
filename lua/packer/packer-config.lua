@@ -124,7 +124,7 @@ return require("packer").startup(function(use)
 	})
 
 	-- Virtual Text Movement
-	use("woosaaahh/sj.nvim")
+	use({ "woosaaahh/sj.nvim", commit = "c0e255714ba0f7ec80d19f31589fd05fc0907564" })
 
 	-- Surround
 	use("kylechui/nvim-surround")

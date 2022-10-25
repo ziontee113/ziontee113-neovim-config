@@ -10,6 +10,7 @@ markit.colors = {
 markit.queries = {
 	default = "(identifier) @markid",
 	-- default = '((identifier) @markid (#not-any-of? @markid "require" "ipairs"))',
+	-- not this! ((function_declaration name:(identifier) @cap))
 }
 markit.queries.typescript = markit.queries.javascript
 
