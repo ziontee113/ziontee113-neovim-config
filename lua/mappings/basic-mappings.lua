@@ -86,4 +86,18 @@ vim.keymap.set("i", "<C-c>", "<cmd>PickColorInsert<cr>")
 vim.keymap.set("n", "", "gcc", { remap = true })
 vim.keymap.set("x", "", "gc", { remap = true })
 
+-- Targets.vim (Mini.ai)
+vim.api.nvim_set_keymap("n", "<Leader>h", "ciq", {})
+vim.api.nvim_set_keymap("n", "<Leader>j", "ci{", {})
+vim.api.nvim_set_keymap("n", "<Leader>k", "ci)", {})
+vim.api.nvim_set_keymap("n", "<Leader>l", "ci[", {})
+vim.api.nvim_set_keymap("n", "<Leader><C-l>", "c2inq", {})
+vim.api.nvim_set_keymap("n", "<Leader><C-j>", "cilq", {})
+vim.api.nvim_set_keymap("n", "<Leader><C-k>", "cinq", {})
+vim.api.nvim_set_keymap("n", "<Leader><C-h>", "c2ilq", {})
+
+-- Stuffs
+vim.keymap.set("n", "0", "^", {})
+vim.keymap.set("n", "^", "0", {})
+
 -- {{{nvim-execute-on-save}}}

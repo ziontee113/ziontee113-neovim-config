@@ -103,7 +103,7 @@ cs({
 	trigger = "augroup",
 	nodes = fmt(
 		[=[
-local {} = vim.api.nvim_create_augroup("{}")
+local {} = vim.api.nvim_create_augroup("{}", {{{{}}}})
 ]=],
 		{
 			i(1, "augroup"),

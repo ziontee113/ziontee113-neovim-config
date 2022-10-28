@@ -18,10 +18,6 @@ require("cmp-config")
 
 require("plugins.syntax-tree-surfer")
 
--- Mappings
-require("mappings.basic-mappings")
-require("mappings.paragraph-jumping")
-
 -- Additional Highlighting
 require("plugins.colorizer")
 require("plugins.surround")
@@ -39,6 +35,10 @@ require("todo-comments").setup({})
 -- Mini.nvim
 require("mini.ai").setup() -- targets.vim
 
+-- Mappings
+require("mappings.basic-mappings")
+require("mappings.paragraph-jumping")
+
 -- Custom Scripts
 require("global-variables")
 require("custom-scripts")
@@ -46,14 +46,27 @@ require("custom-scripts")
 -- Custom Autocmds
 require("autocmds.execute-on-save")
 
+-- Icons
+require("icon-picker").setup({
+	disable_legacy_commands = true,
+})
+vim.keymap.set("i", "<A-i>", "<cmd>IconPickerInsert<cr>", {})
+vim.keymap.set("n", "<Leader><Leader>i", "<cmd>IconPickerNormal<cr>", {})
+
 --In Development
 vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/neo-minimap/]])
-require("plugins.neo-minimap")
+require("neo-minimap")
+vim.keymap.set("n", "<F1>", function()
+	R("neo-minimap")
+end, {})
 
 vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/query-secretary/]])
-require("query-secretary")
+local query_secretary = require("query-secretary")
 vim.keymap.set("n", "<Leader>r", function()
 	R("query-secretary")
+end, {})
+vim.keymap.set("n", "<BS>", function()
+	query_secretary.query_window_initiate()
 end, {})
 
 -- Notify

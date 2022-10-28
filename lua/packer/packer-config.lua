@@ -116,6 +116,10 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- Icon Picker
+	use("~/.config/nvim-custom-plugin/icon-picker.nvim")
+
+	-- Comments
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
@@ -163,4 +167,17 @@ return require("packer").startup(function(use)
 
 	-- DevOnDuty Better Variable Highlighting
 	use("David-Kunz/markid")
+
+	-- Dressing
+	use({ "stevearc/dressing.nvim" })
+
+	----
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	})
 end)

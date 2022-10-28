@@ -6,3 +6,10 @@ local function test_vim_fn_line_col()
 
 	N({ { first_line, last_line }, { v_line_start, v_col_start }, { v_line_end, v_col_end } })
 end
+
+local function jump_25_percent(divide)
+	local first_line, last_line = vim.fn.line("w0"), vim.fn.line("w$")
+	local total_lines = last_line - first_line
+
+	local divided = total_lines / divide
+end
