@@ -44,13 +44,17 @@ require("autocmds.execute-on-save")
 
 -- Leap
 vim.keymap.set("n", "s", function()
-	-- require("leap").leap({ target_windows = { vim.fn.win_getid() } })
+	vim.cmd("WindowsDisableAutowidth")
 
 	require("leap").leap({
 		target_windows = vim.tbl_filter(function(win)
 			return vim.api.nvim_win_get_config(win).focusable
 		end, vim.api.nvim_tabpage_list_wins(0)),
 	})
+
+	vim.schedule(function()
+		vim.cmd("WindowsEnableAutowidth")
+	end)
 end, {})
 
 -- Icons
@@ -63,7 +67,6 @@ vim.keymap.set("n", "<Leader><Leader>i", "<cmd>IconPickerNormal<cr>", {})
 --In Development
 vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/neo-minimap/]])
 require("neo-minimap")
-require("plugins.neo-minimap")
 vim.keymap.set("n", "<F1>", function()
 	R("neo-minimap")
 end, {})
