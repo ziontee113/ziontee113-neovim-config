@@ -97,7 +97,7 @@ vim.api.nvim_set_keymap("n", "<Leader><C-k>", "cinq", {})
 vim.api.nvim_set_keymap("n", "<Leader><C-h>", "c2ilq", {})
 
 -- Stuffs
-vim.keymap.set("n", "0", "^", {})
-vim.keymap.set("n", "^", "0", {})
+vim.keymap.set({ "n", "x", "o" }, "0", "^", {})
+vim.keymap.set({ "n", "x", "o" }, "^", "0", {})
 
 -- {{{nvim-execute-on-save}}}

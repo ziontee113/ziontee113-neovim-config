@@ -76,21 +76,6 @@ return require("packer").startup(function(use)
 	-- Additional Highlighter
 	use("NvChad/nvim-colorizer.lua")
 
-	-- Windows Animation
-	use({
-		"anuvyklack/windows.nvim",
-		requires = {
-			"anuvyklack/middleclass",
-			"anuvyklack/animation.nvim",
-		},
-		config = function()
-			vim.o.winwidth = 10
-			vim.o.winminwidth = 10
-			vim.o.equalalways = false
-			require("windows").setup()
-		end,
-	})
-
 	-- Tabby
 	use("nanozuki/tabby.nvim")
 
@@ -127,9 +112,6 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- Virtual Text Movement
-	use({ "woosaaahh/sj.nvim", commit = "c0e255714ba0f7ec80d19f31589fd05fc0907564" })
-
 	-- Surround
 	use("kylechui/nvim-surround")
 
@@ -142,14 +124,6 @@ return require("packer").startup(function(use)
 		config = function()
 			require("nvim-rooter").setup()
 		end,
-	})
-
-	-- Yank Manager
-	use({
-		"AckslD/nvim-neoclip.lua",
-		requires = {
-			{ "kkharji/sqlite.lua", module = "sqlite" },
-		},
 	})
 
 	-- Close Buffers
@@ -180,4 +154,7 @@ return require("packer").startup(function(use)
 		end,
 		ft = { "markdown" },
 	})
+
+	-- Leap
+	use("ggandor/leap.nvim")
 end)

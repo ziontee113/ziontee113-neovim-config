@@ -24,10 +24,6 @@ require("plugins.surround")
 
 -- Workspace Management
 require("plugins.tabby")
-require("plugins.sj")
-
--- Yank Management
-require("plugins.neoclip")
 
 -- Todo Comments
 require("todo-comments").setup({})
@@ -46,6 +42,17 @@ require("custom-scripts")
 -- Custom Autocmds
 require("autocmds.execute-on-save")
 
+-- Leap
+vim.keymap.set("n", "s", function()
+	-- require("leap").leap({ target_windows = { vim.fn.win_getid() } })
+
+	require("leap").leap({
+		target_windows = vim.tbl_filter(function(win)
+			return vim.api.nvim_win_get_config(win).focusable
+		end, vim.api.nvim_tabpage_list_wins(0)),
+	})
+end, {})
+
 -- Icons
 require("icon-picker").setup({
 	disable_legacy_commands = true,
@@ -56,6 +63,7 @@ vim.keymap.set("n", "<Leader><Leader>i", "<cmd>IconPickerNormal<cr>", {})
 --In Development
 vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/neo-minimap/]])
 require("neo-minimap")
+require("plugins.neo-minimap")
 vim.keymap.set("n", "<F1>", function()
 	R("neo-minimap")
 end, {})
