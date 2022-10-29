@@ -46,19 +46,7 @@ require("custom-scripts")
 require("autocmds.execute-on-save")
 
 -- Leap
-vim.keymap.set("n", "s", function()
-	vim.cmd("WindowsDisableAutowidth")
-
-	require("leap").leap({
-		target_windows = vim.tbl_filter(function(win)
-			return vim.api.nvim_win_get_config(win).focusable
-		end, vim.api.nvim_tabpage_list_wins(0)),
-	})
-
-	vim.schedule(function()
-		vim.cmd("WindowsEnableAutowidth")
-	end)
-end, {})
+require("plugins.leap")
 
 -- Icons
 require("icon-picker").setup({
