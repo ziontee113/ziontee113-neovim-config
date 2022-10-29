@@ -19,15 +19,15 @@ map("n", "<A-S-l>", "<Plug>GoNSMRight", {})
 -- map("n", "<A-S-l>", "<Plug>GoNSDRight", {})
 
 -- Visual Mode Move
-map("x", "<A-j>", "<Plug>GoVSMDown", {})
-map("x", "<A-k>", "<Plug>GoVSMUp", {})
-map("x", "<A-h>", "<Plug>GoVSMLeft", {})
-map("x", "<A-l>", "<Plug>GoVSMRight", {})
+map("x", "<A-S-j>", "<Plug>GoVSMDown", {})
+map("x", "<A-S-k>", "<Plug>GoVSMUp", {})
+map("x", "<A-S-h>", "<Plug>GoVSMLeft", {})
+map("x", "<A-S-l>", "<Plug>GoVSMRight", {})
 
--- Visual Mode Duplicate
-map("x", "<A-S-j>", "<Plug>GoVSDDown", {})
-map("x", "<A-S-k>", "<Plug>GoVSDUp", {})
-map("x", "<A-S-h>", "<Plug>GoVSDLeft", {})
-map("x", "<A-S-l>", "<Plug>GoVSDRight", {})
+-- -- Visual Mode Duplicate
+-- map("x", "<A-S-j>", "<Plug>GoVSDDown", {})
+-- map("x", "<A-S-k>", "<Plug>GoVSDUp", {})
+-- map("x", "<A-S-h>", "<Plug>GoVSDLeft", {})
+-- map("x", "<A-S-l>", "<Plug>GoVSDRight", {})
 
 -- {{{nvim-execute-on-save}}}
