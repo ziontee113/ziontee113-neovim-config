@@ -172,4 +172,7 @@ return require("packer").startup(function(use)
 			require("windows").setup()
 		end,
 	})
+
+	-- GoMove
+	use("booperlv/nvim-gomove")
 end)

@@ -28,6 +28,9 @@ require("plugins.tabby")
 -- Todo Comments
 require("todo-comments").setup({})
 
+-- Gomove
+require("plugins.gomove")
+
 -- Mini.nvim
 require("mini.ai").setup() -- targets.vim
 
