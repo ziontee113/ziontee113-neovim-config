@@ -65,7 +65,7 @@ end
 	keymaps = { "<C-k>f" },
 })
 
--- local
+-- local & require
 cs({
 	trigger = "_trigger",
 	nodes = fmt(
@@ -74,7 +74,7 @@ local {} = {}
 ]=],
 		{
 			i(1, ""),
-			i(2, ""),
+			c(2, { i(1, ""), fmt([=[require("{}")]=], { i(1, "") }) }),
 		}
 	),
 	target_table = snippets,
@@ -279,6 +279,28 @@ cs({
 })
 
 -- ==== LuaSnip ==== --
+
+-- LuaSnip fmt
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[==[
+{}fmt([=[
+{}
+]=], {{
+    {}
+}})
+]==],
+		{
+			c(1, { i(1, ""), fmt([[local {} = ]], i(1, "")) }),
+			i(2, ""),
+			i(3, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "snippets/*.lua" },
+	keymaps = { "<C-h>f" },
+})
 
 -- LuaSnip Snippet Node
 cs({

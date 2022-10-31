@@ -1,3 +1,6 @@
+-- Zion Kit
+vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/zion-kit/]])
+
 -- Packer
 require("packer.packer-config")
 
@@ -55,12 +58,9 @@ require("icon-picker").setup({
 vim.keymap.set("i", "<A-i>", "<cmd>IconPickerInsert<cr>", {})
 vim.keymap.set("n", "<Leader><Leader>i", "<cmd>IconPickerNormal<cr>", {})
 
---In Development
-vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/neo-minimap/]])
-require("neo-minimap")
-vim.keymap.set("n", "<F1>", function()
-	R("neo-minimap")
-end, {})
+--In Development  HACK:
+vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/akamaru/]])
+require("plugins.neo-minimap")
 
 vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/query-secretary/]])
 local query_secretary = require("query-secretary")
