@@ -19,6 +19,7 @@ require("gruvbox").setup({
 vim.cmd([[
     colorscheme gruvbox
     hi Normal guibg=NONE
+    hi NormalFloat guibg=NONE
     hi SignColumn guibg=NONE
     hi FloatBorder guibg=NONE guifg=#b8b8b8
     hi Cursorline guibg=#0f0f0f

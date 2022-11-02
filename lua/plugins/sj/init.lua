@@ -3,12 +3,14 @@ sj.setup({
 	separator = " ",
 })
 
-vim.keymap.set("n", "!", function()
-	sj.run({ select_window = true })
-end)
+vim.keymap.set("n", "s", function()
+	vim.cmd("WindowsDisableAutowidth")
 
-vim.keymap.set("n", "<A-!>", function()
-	sj.select_window()
+	sj.run({ multi_windows = true })
+
+	vim.schedule(function()
+		vim.cmd("WindowsEnableAutowidth")
+	end)
 end)
 
 -- {{{nvim-execute-on-save}}}

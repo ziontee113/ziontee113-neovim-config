@@ -166,7 +166,7 @@ return require("packer").startup(function(use)
 			"anuvyklack/animation.nvim",
 		},
 		config = function()
-			vim.o.winwidth = 10
+			vim.o.winwidth = 120
 			vim.o.winminwidth = 10
 			vim.o.equalalways = false
 			require("windows").setup()
@@ -175,4 +175,7 @@ return require("packer").startup(function(use)
 
 	-- GoMove
 	use("booperlv/nvim-gomove")
+
+	-- -- SJ.nvim
+	-- use({ "woosaaahh/sj.nvim", branch = "feat-multi_wins_search" })
 end)

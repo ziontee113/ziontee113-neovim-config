@@ -25,6 +25,26 @@ cs({
 
 -- ==== Lua ==== --
 
+-- blank function
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+function {}({})
+    {}
+end
+]=],
+		{
+			i(1, "name"),
+			i(2, ""),
+			i(3, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.lua" },
+	keymaps = { "<C-j>f" },
+})
+
 -- local function
 cs({
 	trigger = "_trigger",
@@ -42,7 +62,7 @@ end
 	),
 	target_table = snippets,
 	pattern = { "*.lua" },
-	keymaps = { "<C-j>f" },
+	keymaps = { "<C-l>f" },
 })
 
 -- M. function

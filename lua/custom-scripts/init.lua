@@ -1,4 +1,4 @@
-require("custom-scripts.sign-column-size")
+-- require("custom-scripts.sign-column-size")
 
 -- CWD Custom Script
 
