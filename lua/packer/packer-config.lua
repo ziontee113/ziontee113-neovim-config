@@ -178,4 +178,8 @@ return require("packer").startup(function(use)
 
 	-- -- SJ.nvim
 	-- use({ "woosaaahh/sj.nvim", branch = "feat-multi_wins_search" })
+
+	-- Neotest
+	use("nvim-neotest/neotest")
+	use("nvim-neotest/neotest-plenary")
 end)

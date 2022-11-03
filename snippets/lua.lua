@@ -85,6 +85,22 @@ end
 	keymaps = { "<C-k>f" },
 })
 
+-- require
+cs({
+	trigger = "require",
+	nodes = fmt(
+		[=[
+require("{}")
+]=],
+		{
+			i(1, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.lua" },
+	keymaps = { "<C-j>r" },
+})
+
 -- local & require
 cs({
 	trigger = "_trigger",
