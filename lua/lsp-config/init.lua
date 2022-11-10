@@ -13,11 +13,25 @@ local lsp_formatting = function(bufnr)
 	})
 end
 
+-- local diagnostic functions
+local function diag_prev()
+	local pos = vim.diagnostic.get_prev_pos()
+	if pos then
+		vim.api.nvim_win_set_cursor(0, { pos[1] + 1, pos[2] })
+	end
+end
+local function diag_next()
+	local pos = vim.diagnostic.get_next_pos()
+	if pos then
+		vim.api.nvim_win_set_cursor(0, { pos[1] + 1, pos[2] })
+	end
+end
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "}", diag_next)
+vim.keymap.set("n", "{", diag_prev)
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 
 -- Use an on_attach function to only map the following keys
@@ -62,7 +76,7 @@ local on_attach = function(client, bufnr)
 		})
 	end
 
-	require("lsp-inlayhints").on_attach(client, bufnr)
+	-- require("lsp-inlayhints").on_attach(client, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -76,11 +90,11 @@ require("lsp-inlayhints").setup()
 local rt = require("rust-tools")
 
 rt.setup({
-	tools = {
-		inlay_hints = {
-			auto = false,
-		},
-	},
+	-- tools = {
+	-- 	inlay_hints = {
+	-- 		auto = false,
+	-- 	},
+	-- },
 	server = {
 		on_attach = on_attach,
 	},
@@ -102,30 +116,30 @@ require("typescript").setup({
 	},
 	server = { -- pass options to lspconfig's setup method
 		on_attach = on_attach,
-		settings = {
-			typescript = {
-				inlayHints = {
-					includeInlayParameterNameHints = "all",
-					includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-					includeInlayFunctionParameterTypeHints = true,
-					includeInlayVariableTypeHints = true,
-					includeInlayPropertyDeclarationTypeHints = true,
-					includeInlayFunctionLikeReturnTypeHints = true,
-					includeInlayEnumMemberValueHints = true,
-				},
-			},
-			javascript = {
-				inlayHints = {
-					includeInlayParameterNameHints = "all",
-					includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-					includeInlayFunctionParameterTypeHints = true,
-					includeInlayVariableTypeHints = true,
-					includeInlayPropertyDeclarationTypeHints = true,
-					includeInlayFunctionLikeReturnTypeHints = true,
-					includeInlayEnumMemberValueHints = true,
-				},
-			},
-		},
+		-- settings = {
+		-- 	typescript = {
+		-- 		inlayHints = {
+		-- 			includeInlayParameterNameHints = "all",
+		-- 			includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+		-- 			includeInlayFunctionParameterTypeHints = true,
+		-- 			includeInlayVariableTypeHints = true,
+		-- 			includeInlayPropertyDeclarationTypeHints = true,
+		-- 			includeInlayFunctionLikeReturnTypeHints = true,
+		-- 			includeInlayEnumMemberValueHints = true,
+		-- 		},
+		-- 	},
+		-- 	javascript = {
+		-- 		inlayHints = {
+		-- 			includeInlayParameterNameHints = "all",
+		-- 			includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+		-- 			includeInlayFunctionParameterTypeHints = true,
+		-- 			includeInlayVariableTypeHints = true,
+		-- 			includeInlayPropertyDeclarationTypeHints = true,
+		-- 			includeInlayFunctionLikeReturnTypeHints = true,
+		-- 			includeInlayEnumMemberValueHints = true,
+		-- 		},
+		-- 	},
+		-- },
 	},
 })
 

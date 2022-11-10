@@ -7,11 +7,11 @@ neotest.setup({
 })
 
 -- Mappings
-vim.keymap.set("n", "tt", function()
+vim.keymap.set("n", "tu", function()
 	neotest.run.run() -- current test
 end, {})
 
-vim.keymap.set("n", "tf", function()
+vim.keymap.set("n", "tt", function()
 	require("neotest").run.run(vim.fn.expand("%")) -- current file
 end, {})
 

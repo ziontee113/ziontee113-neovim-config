@@ -9,6 +9,9 @@ markit.colors = {
 
 markit.queries = {
 	default = "(identifier) @markid",
+
+	-- default = "( (identifier) @markid (#not-has-ancestor? @markid jsx_expression jsx_opening_element jsx_closing_element) )",
+
 	-- default = '((identifier) @markid (#not-any-of? @markid "require" "ipairs"))',
 	-- not this! ((function_declaration name:(identifier) @cap))
 }

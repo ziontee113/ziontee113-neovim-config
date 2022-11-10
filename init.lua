@@ -86,7 +86,7 @@ require("plugins.neotest")
 ---------------------------------------
 
 --In Development  HACK:
-vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/akamaru/]])
+vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/neo-minimap/]])
 require("plugins.neo-minimap")
 
 -- require("plugins.sj")
