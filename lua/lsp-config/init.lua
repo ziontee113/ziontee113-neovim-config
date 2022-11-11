@@ -97,6 +97,21 @@ rt.setup({
 	-- },
 	server = {
 		on_attach = on_attach,
+		settings = {
+			["rust-analyzer"] = {
+				cargo = {
+					allFeatures = true,
+				},
+				completion = {
+					postfix = {
+						enable = false,
+					},
+				},
+				checkOnSave = {
+					command = "clippy",
+				},
+			},
+		},
 	},
 })
 
