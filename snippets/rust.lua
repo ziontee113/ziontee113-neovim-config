@@ -67,6 +67,22 @@ println!("{} {{:#?}}", {})
 	keymaps = { "<C-J>p" },
 })
 
+-- Arc Mutex
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+Arc::new(Mutex::new({}))
+]=],
+		{
+			i(1, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-k>A" },
+})
+
 -- Variable Declaration
 
 cs({
@@ -155,6 +171,29 @@ fn {}({}){} {{
 	target_table = snippets,
 	pattern = { "*.rs" },
 	keymaps = { "<C-J>f" },
+})
+
+-- ==== Struct Related ==== --
+
+-- pub fn new -> Self
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+pub fn {}({}: {}) -> Self {{
+    {}
+}}
+]=],
+		{
+			i(1, "new"),
+			i(2, "arg"),
+			i(3, "type"),
+			i(4, "// TODO:"),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-j>pn" },
 })
 
 -- ==== Tauri ==== --
