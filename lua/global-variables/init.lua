@@ -15,4 +15,13 @@ R = function(name)
 	RELOAD(name)
 	return require(name)
 end
+
+KS = function(mode, keys, callback)
+	for _, key in ipairs(keys) do
+		vim.keymap.set(mode, key, function()
+			callback()
+		end, {})
+	end
+end
+
 -- {{{nvim-execute-on-save}}}

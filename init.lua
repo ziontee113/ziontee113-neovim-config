@@ -50,8 +50,9 @@ require("custom-scripts.toggle-diagnostics")
 -- Custom Autocmds
 require("autocmds.execute-on-save")
 
--- Leap
-require("plugins.leap")
+-- Leap / SJ
+-- require("plugins.leap")
+require("plugins.sj")
 
 -- Icons
 require("icon-picker").setup({

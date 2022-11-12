@@ -175,8 +175,8 @@ return require("packer").startup(function(use)
 	-- GoMove
 	use("booperlv/nvim-gomove")
 
-	-- -- SJ.nvim
-	-- use({ "woosaaahh/sj.nvim", branch = "feat-multi_wins_search" })
+	-- SJ.nvim
+	use({ "woosaaahh/sj.nvim", branch = "feat-no_separator" })
 
 	-- Neotest
 	use({ "nvim-neotest/neotest", commit = "2e975ae64b0c476b72274a1d6166a22f0f01b2d5" })
