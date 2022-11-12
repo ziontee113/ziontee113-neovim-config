@@ -73,7 +73,7 @@ cs({
 	trigger = "_trigger",
 	nodes = fmt(
 		[=[
-let {} = {}
+let {} = {};
 ]=],
 		{
 			i(1, ""),
@@ -82,7 +82,54 @@ let {} = {}
 	),
 	target_table = snippets,
 	pattern = { "*.rs" },
-	keymaps = { "<C-J><C-K>" },
+	keymaps = { "<C-J><C-K>", "<C-L><C-L>" },
+})
+
+-- Test Macro
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+#[cfg(test)]
+mod {} {{
+    use super::*;
+
+    #[test]
+    fn {}() {{
+        assert!({});
+    }}
+}}
+]=],
+		{
+			i(1, "test"),
+			i(2, "test_fn_name"),
+			i(3, "expression"),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-t>t" },
+})
+
+-- Test Function
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+#[test]
+fn {}() {{
+    assert_eq!({}, {});
+}}
+]=],
+		{
+			i(1, "test_fn_name"),
+			i(2, "left_side"),
+			i(3, "right_side"),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-t>f" },
 })
 
 -- Function

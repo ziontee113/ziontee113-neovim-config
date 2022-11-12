@@ -13,9 +13,11 @@ require("nvim-surround").setup({
 		normal_cur = "yss",
 		normal_line = "yS",
 		normal_cur_line = "ySS",
-		visual = "s",
-		visual_line = "S",
+		visual = "S",
+		visual_line = "<Leader>S",
 		delete = "ds",
 		change = "cs",
 	},
 })
+
+-- {{{nvim-execute-on-save}}}
