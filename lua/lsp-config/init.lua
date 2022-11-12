@@ -20,6 +20,7 @@ local function diag_prev()
 		vim.api.nvim_win_set_cursor(0, { pos[1] + 1, pos[2] })
 	end
 end
+
 local function diag_next()
 	local pos = vim.diagnostic.get_next_pos()
 	if pos then

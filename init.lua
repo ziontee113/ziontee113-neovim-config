@@ -45,6 +45,7 @@ require("mappings.paragraph-jumping")
 -- Custom Scripts
 require("global-variables")
 require("custom-scripts")
+require("custom-scripts.toggle-diagnostics")
 
 -- Custom Autocmds
 require("autocmds.execute-on-save")
@@ -93,9 +94,7 @@ require("plugins.neo-minimap")
 
 vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/query-secretary/]])
 local query_secretary = require("query-secretary")
-vim.keymap.set("n", "<Leader>r", function()
-	R("query-secretary")
-end, {})
+vim.keymap.set("n", "<Leader>r", "<Plug>(toggle-lsp-diag-vtext)", {})
 vim.keymap.set("n", "<BS>", function()
 	query_secretary.query_window_initiate()
 end, {})

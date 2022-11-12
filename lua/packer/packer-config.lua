@@ -54,7 +54,6 @@ return require("packer").startup(function(use)
 	use("windwp/nvim-autopairs")
 	use("windwp/nvim-ts-autotag")
 	use("p00f/nvim-ts-rainbow")
-	use("nvim-treesitter/nvim-treesitter-textobjects")
 
 	-- LuaSnip
 	use("L3MON4D3/LuaSnip")
@@ -180,6 +179,7 @@ return require("packer").startup(function(use)
 	-- use({ "woosaaahh/sj.nvim", branch = "feat-multi_wins_search" })
 
 	-- Neotest
-	use("nvim-neotest/neotest")
+	use({ "nvim-neotest/neotest", commit = "2e975ae64b0c476b72274a1d6166a22f0f01b2d5" })
 	use("nvim-neotest/neotest-plenary")
+	use("rouge8/neotest-rust")
 end)
