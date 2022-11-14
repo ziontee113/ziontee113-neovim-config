@@ -1,6 +1,7 @@
 ------------ Set up
 local neotest = require("neotest")
 neotest.setup({
+	log_level = vim.log.levels.DEBUG,
 	adapters = {
 		require("neotest-plenary"),
 		require("neotest-rust")({

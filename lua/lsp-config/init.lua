@@ -4,13 +4,22 @@ require("mason").setup()
 -- Code Formatting (from null-ls)
 local LspFormattingAugroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local lsp_formatting = function(bufnr)
+	-- vim.lsp.buf.format({
+	-- 	filter = function(client)
+	-- 		-- apply whatever logic you want (in this example, we'll only use null-ls)
+	-- 		return client.name == "null-ls"
+	-- 	end,
+	-- 	bufnr = bufnr,
+	-- })
+
 	vim.lsp.buf.format({
+		bufnr = bufnr,
 		filter = function(client)
-			-- apply whatever logic you want (in this example, we'll only use null-ls)
 			return client.name == "null-ls"
 		end,
-		bufnr = bufnr,
 	})
+
+	-- vim.lsp.buf.format({ bufnr = bufnr })
 end
 
 -- local diagnostic functions

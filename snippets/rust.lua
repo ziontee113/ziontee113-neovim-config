@@ -5,6 +5,36 @@ local snippets, autosnippets, cs = {}, {}, require("luasnip-config.luasnip-utils
 
 -- Rust
 
+-- struct
+local _struct_fmt = fmt(
+	[=[
+ {{
+    {}: {},
+}}
+]=],
+	{
+		i(1, "field"),
+		i(2, "Type"),
+	}
+)
+
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+{}struct {}{}
+]=],
+		{
+			c(1, { i(1, ""), t("pub ") }),
+			i(2, "StructName"),
+			c(3, { t(";"), _struct_fmt }),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-k><C-s>" },
+})
+
 -- let match
 
 cs({
@@ -112,7 +142,7 @@ mod {} {{
 
     #[test]
     fn {}() {{
-        assert!({});
+        assert_eq!({});
     }}
 }}
 ]=],

@@ -1,7 +1,7 @@
 local o = vim.opt
 
 o.number = true
-o.relativenumber = true
+-- o.relativenumber = true
 
 o.tabstop = 4
 o.softtabstop = 4
@@ -21,3 +21,5 @@ o.splitright = true
 o.splitbelow = true
 
 o.cursorline = true
+
+vim.cmd("set signcolumn=yes:1")
