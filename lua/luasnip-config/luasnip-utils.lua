@@ -4,6 +4,11 @@ local ls = require("luasnip")
 local ts_utils = require("nvim-treesitter.ts_utils")
 local augroup = vim.api.nvim_create_augroup("Custom Luasnip", { clear = true })
 
+local i = ls.insert_node
+local c = ls.choice_node
+local d = ls.dynamic_node
+local sn = ls.snippet_node
+
 function M.create_snippet(opts)
 	local snippet = ls.s(opts.trigger, opts.nodes, opts.opts)
 
@@ -56,7 +61,7 @@ end
 
 local function filter_unique(tbl)
 	local hashmap, return_tbl = {}, {}
-	for i, v in ipairs(tbl) do
+	for _, v in ipairs(tbl) do
 		if not hashmap[v] then
 			hashmap[v] = i
 			table.insert(return_tbl, v)
@@ -81,25 +86,22 @@ local function get_identifers_text_tbl()
 	return node_text_tbl
 end
 
-M.t = function(opts)
-	local node_text_tbl = get_identifers_text_tbl()
-	local filtered_node_text_tbl = filter_unique(node_text_tbl)
-	filtered_node_text_tbl = filter_str_len_larger_than(node_text_tbl, 1)
+M.tn = function(jump_index)
+	return d(jump_index, function()
+		local node_text_tbl = get_identifers_text_tbl()
+		local filtered_node_text_tbl = filter_unique(node_text_tbl)
+		filtered_node_text_tbl = filter_str_len_larger_than(node_text_tbl, 1)
 
-	N(filtered_node_text_tbl)
+		local choices_tbl = {}
+		for _, v in ipairs(filtered_node_text_tbl) do
+			table.insert(choices_tbl, i(1, v))
+		end
+
+		return sn(nil, {
+			c(1, choices_tbl),
+		})
+	end, {})
 end
-
-vim.keymap.set("n", " ;", function()
-	-- TODO: put them in a dynamic node that will return a snippet node
-	-- TODO: in that snippet node has a choice node that contains
-	-- TODO: all the unique identifiers
-
-	M.t()
-end, {})
-
--- FIX: I have a problem:
--- I don't like to look up old code that has been written
--- whether it's by me or by other people.
 
 return M
 -- {{{nvim-execute-on-save}}}

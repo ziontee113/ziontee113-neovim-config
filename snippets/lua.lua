@@ -1,10 +1,28 @@
 ---@diagnostic disable: undefined-global
-
 ---@diagnostic disable-next-line: unused-local
-local snippets, autosnippets, cs = {}, {}, require("luasnip-config.luasnip-utils").create_snippet
+local snippets, autosnippets = {}, {}
+local luasnip_utils = require("luasnip-config.luasnip-utils")
+local cs = luasnip_utils.create_snippet
+local tn = luasnip_utils.tn
 
 -- TODO: trigger last triggerred snippet
 -- TODO: use Neo-Minimap to quickly view the keymaps for snippets
+
+-- ==== Testing tn (Treesitter Node) ==== --
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+just testing {}
+]=],
+		{
+			tn(1),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.lua" },
+	keymaps = { "<C-t>t" },
+})
 
 -- ==== Comments ==== --
 cs({
