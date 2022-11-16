@@ -179,15 +179,7 @@ return require("packer").startup(function(use)
 	use({ "woosaaahh/sj.nvim", branch = "0.6" })
 
 	-- Neotest
-	use({ "nvim-neotest/neotest", commit = "2e975ae64b0c476b72274a1d6166a22f0f01b2d5" })
-	-- use({
-	-- 	"nvim-neotest/neotest",
-	-- 	requires = {
-	-- 		"nvim-lua/plenary.nvim",
-	-- 		"nvim-treesitter/nvim-treesitter",
-	-- 		-- "antoinemadec/FixCursorHold.nvim"
-	-- 	},
-	-- })
+	use({ "nvim-neotest/neotest" })
 	use("nvim-neotest/neotest-plenary")
 	use("rouge8/neotest-rust")
 end)

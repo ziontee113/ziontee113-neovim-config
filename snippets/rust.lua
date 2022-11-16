@@ -35,6 +35,25 @@ cs({
 	keymaps = { "<C-k><C-s>" },
 })
 
+-- impl
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+impl {} {{
+    {}
+}}
+]=],
+		{
+			i(1, "StructName"),
+			i(2, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-k><C-i>" },
+})
+
 -- let match
 
 cs({
@@ -184,18 +203,21 @@ cs({
 	trigger = "_trigger",
 	nodes = fmt(
 		[=[
-fn {}({}){} {{
+{}fn {}({}){} {{
     {}
 }}
 ]=],
 		{
-			i(1, "fn_name"),
-			i(2, ""),
-			c(3, {
+			c(1, { t(""), t("pub ") }),
+			i(2, "fn_name"),
+			i(3, ""),
+			c(4, {
 				i(1, ""),
 				sn(1, { t(" -> "), i(1, "") }),
+
+				sn(1, { t(" -> "), t("Self") }),
 			}),
-			i(4, "// TODO:"),
+			i(5, "// TODO:"),
 		}
 	),
 	target_table = snippets,
