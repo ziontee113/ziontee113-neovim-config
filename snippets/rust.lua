@@ -1,5 +1,4 @@
 ---@diagnostic disable: undefined-global
-
 ---@diagnostic disable-next-line: unused-local
 local snippets, autosnippets, cs = {}, {}, require("luasnip-config.luasnip-utils").create_snippet
 

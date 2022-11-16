@@ -25,6 +25,23 @@ cs({
 
 -- ==== Lua ==== --
 
+-- table.insert
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+table.insert({}, {})
+]=],
+		{
+			i(1, "tbl"),
+			i(2, "item"),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.lua" },
+	keymaps = { "<C-t>i" },
+})
+
 -- blank function
 cs({
 	trigger = "_trigger",
