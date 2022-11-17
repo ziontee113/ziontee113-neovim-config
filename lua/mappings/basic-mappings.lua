@@ -1,6 +1,6 @@
 -- Vim Mappings
 vim.keymap.set("n", "<C-S>", ":w<CR>")
-vim.keymap.set("i", "<C-S>", "<Esc>:w<CR>")
+vim.keymap.set({ "i", "s" }, "<C-S>", "<Esc>:w<CR>")
 
 vim.keymap.set("n", "<C-0>", ":source Session.vim<CR>")
 

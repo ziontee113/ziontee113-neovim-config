@@ -6,6 +6,24 @@ nm.setup_defaults({
 })
 nm.source_on_save("/home/ziontee113/.config/nvim/lua/plugins/neo-minimap/")
 
+-- Rust
+
+nm.set({ "zi" }, "*.rs", {
+	events = { "BufEnter" },
+	query = {
+		[[
+        ;; query
+(enum_item (type_identifier) @cap)
+(trait_item (type_identifier) @cap)
+(struct_item (type_identifier) @cap)
+(impl_item (type_identifier) @cap)
+(function_item (identifier) @cap)
+(mod_item (identifier) @cap)
+        ]],
+	},
+	regex = {},
+})
+
 -- Latex
 
 nm.set({ "zo", "zu" }, "*.tex", {

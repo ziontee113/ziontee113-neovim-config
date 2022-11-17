@@ -71,10 +71,10 @@ local function filter_unique(tbl)
 	return return_tbl
 end
 
-local function get_identifers_text_tbl()
+local function get_identifers_text_tbl(opts)
 	local top_node = M.get_top_node()
-	local query = "((identifier) @capture)"
-	local iter_query = vim.treesitter.query.parse_query(vim.bo[0].ft, query)
+	local query = opts.query or "((identifier) @capture)"
+	local iter_query = vim.treesitter.query.parse_query(opts.ft or vim.bo[0].ft, query)
 
 	local node_text_tbl = {}
 	for _, matches, _ in iter_query:iter_matches(top_node, 0) do
@@ -86,9 +86,9 @@ local function get_identifers_text_tbl()
 	return node_text_tbl
 end
 
-M.tn = function(jump_index)
+M.tn = function(jump_index, opts)
 	return d(jump_index, function()
-		local node_text_tbl = get_identifers_text_tbl()
+		local node_text_tbl = get_identifers_text_tbl(opts)
 		local filtered_node_text_tbl = filter_unique(node_text_tbl)
 		filtered_node_text_tbl = filter_str_len_larger_than(node_text_tbl, 1)
 

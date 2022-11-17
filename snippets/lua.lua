@@ -5,9 +5,6 @@ local luasnip_utils = require("luasnip-config.luasnip-utils")
 local cs = luasnip_utils.create_snippet
 local tn = luasnip_utils.tn
 
--- TODO: trigger last triggerred snippet
--- TODO: use Neo-Minimap to quickly view the keymaps for snippets
-
 -- ==== Testing tn (Treesitter Node) ==== --
 cs({
 	trigger = "_trigger",

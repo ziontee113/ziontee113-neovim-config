@@ -4,53 +4,20 @@ local snippets, autosnippets, cs = {}, {}, require("luasnip-config.luasnip-utils
 
 -- Rust
 
--- struct
-local _struct_fmt = fmt(
-	[=[
- {{
-    {}: {},
-}}
-]=],
-	{
-		i(1, "field"),
-		i(2, "Type"),
-	}
-)
-
+-- #[derrive()]
 cs({
 	trigger = "_trigger",
 	nodes = fmt(
 		[=[
-{}struct {}{}
+#[derive({})]
 ]=],
 		{
-			c(1, { i(1, ""), t("pub ") }),
-			i(2, "StructName"),
-			c(3, { t(";"), _struct_fmt }),
+			i(1, "Debug"),
 		}
 	),
 	target_table = snippets,
 	pattern = { "*.rs" },
-	keymaps = { "<C-k><C-s>" },
-})
-
--- impl
-cs({
-	trigger = "_trigger",
-	nodes = fmt(
-		[=[
-impl {} {{
-    {}
-}}
-]=],
-		{
-			i(1, "StructName"),
-			i(2, ""),
-		}
-	),
-	target_table = snippets,
-	pattern = { "*.rs" },
-	keymaps = { "<C-k><C-i>" },
+	keymaps = { "<C-d>d" },
 })
 
 -- let match
@@ -209,7 +176,7 @@ cs({
 		{
 			c(1, { t(""), t("pub ") }),
 			i(2, "fn_name"),
-			i(3, ""),
+			c(3, { i(1, ""), i(1, "&self") }),
 			c(4, {
 				i(1, ""),
 				sn(1, { t(" -> "), i(1, "") }),
@@ -225,6 +192,55 @@ cs({
 })
 
 -- ==== Struct Related ==== --
+
+-- struct
+local _struct_fmt = fmt(
+	[=[
+ {{
+    {}: {},
+}}
+]=],
+	{
+		i(1, "field"),
+		i(2, "Type"),
+	}
+)
+
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+{}struct {}{}
+]=],
+		{
+			c(1, { i(1, ""), t("pub ") }),
+			i(2, "StructName"),
+			c(3, { t(";"), _struct_fmt }),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-k><C-s>" },
+})
+
+-- impl
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+impl {} {{
+    {}
+}}
+]=],
+		{
+			i(1, "StructName"),
+			i(2, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-k><C-i>" },
+})
 
 -- pub fn new -> Self
 cs({
