@@ -1,9 +1,9 @@
----@diagnostic disable: undefined-global
 local M = {}
 local ls = require("luasnip")
 local ts_utils = require("nvim-treesitter.ts_utils")
 local augroup = vim.api.nvim_create_augroup("Custom Luasnip", { clear = true })
 
+local t = ls.text_node
 local i = ls.insert_node
 local c = ls.choice_node
 local d = ls.dynamic_node
@@ -71,35 +71,71 @@ local function filter_unique(tbl)
 	return return_tbl
 end
 
-local function get_identifers_text_tbl(opts)
-	local top_node = M.get_top_node()
-	local query = opts.query or "((identifier) @capture)"
-	local iter_query = vim.treesitter.query.parse_query(opts.ft or vim.bo[0].ft, query)
+local function get_root_node(buf_nr, lang)
+	local parser = vim.treesitter.get_parser(buf_nr, lang)
+	local trees = parser:parse()
+	return trees[1]:root()
+end
 
+local function get_nodes_text_tbl(opts)
+	-- local top_node = M.get_top_node()
+	local query = opts.query
 	local node_text_tbl = {}
-	for _, matches, _ in iter_query:iter_matches(top_node, 0) do
-		local node = matches[1]
-		local node_text = vim.treesitter.query.get_node_text(node, 0)
-		table.insert(node_text_tbl, node_text)
+
+	local root = get_root_node(0, opts.lang)
+
+	for _, matches, _ in query:iter_matches(root, 0) do
+		for id, node in pairs(matches) do
+			local curr_capture_name = query.captures[id]
+			if opts.capture_name == curr_capture_name then
+				local node_text = vim.treesitter.query.get_node_text(node, 0)
+				table.insert(node_text_tbl, node_text)
+			end
+		end
 	end
 
 	return node_text_tbl
 end
 
-M.tn = function(jump_index, opts)
+-------------------------------------------- Query From File -------------
+
+local function sized_table(value)
+	return type(value) == "table" and next(value) ~= nil
+end
+
+local function get_query_from_file(lang, query_name)
+	local _, query = pcall(vim.treesitter.get_query, lang, query_name)
+	if sized_table(query) then
+		return query
+	end
+end
+
+M.tsn = function(jump_index, opts)
+	opts = opts or {}
+	if opts.lang and opts.query_file then
+		opts.query = get_query_from_file(opts.lang, opts.query_file)
+	end
+
 	return d(jump_index, function()
-		local node_text_tbl = get_identifers_text_tbl(opts)
-		local filtered_node_text_tbl = filter_unique(node_text_tbl)
-		filtered_node_text_tbl = filter_str_len_larger_than(node_text_tbl, 1)
+		local node_text_tbl = get_nodes_text_tbl(opts)
+		if #node_text_tbl > 0 then
+			local filtered_node_text_tbl = filter_unique(node_text_tbl)
+			filtered_node_text_tbl = filter_str_len_larger_than(node_text_tbl, 1)
 
-		local choices_tbl = {}
-		for _, v in ipairs(filtered_node_text_tbl) do
-			table.insert(choices_tbl, i(1, v))
+			local choices_tbl = {}
+			for _, v in ipairs(filtered_node_text_tbl) do
+				print(v)
+				table.insert(choices_tbl, i(1, v))
+			end
+
+			return sn(nil, {
+				c(1, choices_tbl),
+			})
+		else
+			return sn(nil, {
+				t(""),
+			})
 		end
-
-		return sn(nil, {
-			c(1, choices_tbl),
-		})
 	end, {})
 end
 

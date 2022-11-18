@@ -4,6 +4,22 @@ local snippets, autosnippets, cs = {}, {}, require("luasnip-config.luasnip-utils
 
 -- Rust
 
+-- TODO comment:
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+// TODO: {}
+]=],
+		{
+			i(1, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<A-,>" },
+})
+
 -- #[derrive()]
 cs({
 	trigger = "_trigger",
@@ -161,6 +177,26 @@ fn {}() {{
 	target_table = snippets,
 	pattern = { "*.rs" },
 	keymaps = { "<C-t>f" },
+})
+
+-- For Loop
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+for {} in {} {{
+    {}
+}}
+]=],
+		{
+			i(1, ""),
+			i(2, ""),
+			i(3, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-f>o" },
 })
 
 -- Function

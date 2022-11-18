@@ -3,7 +3,7 @@
 local snippets, autosnippets = {}, {}
 local luasnip_utils = require("luasnip-config.luasnip-utils")
 local cs = luasnip_utils.create_snippet
-local tn = luasnip_utils.tn
+local tsn = luasnip_utils.tsn
 
 -- ==== Testing tn (Treesitter Node) ==== --
 cs({
@@ -13,7 +13,7 @@ cs({
 just testing {}
 ]=],
 		{
-			tn(1),
+			tsn(1, { lang = "lua", query_file = "super_idol", capture_name = "cap1" }),
 		}
 	),
 	target_table = snippets,

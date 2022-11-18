@@ -8,7 +8,7 @@ nm.source_on_save("/home/ziontee113/.config/nvim/lua/plugins/neo-minimap/")
 
 -- Rust
 
-nm.set({ "zi" }, "*.rs", {
+nm.set({ "zi", "zo" }, "*.rs", {
 	events = { "BufEnter" },
 	query = {
 		[[
@@ -19,9 +19,16 @@ nm.set({ "zi" }, "*.rs", {
 (impl_item (type_identifier) @cap)
 (function_item (identifier) @cap)
 (mod_item (identifier) @cap)
+(macro_definition (identifier) @cap)
         ]],
+		1,
 	},
 	regex = {},
+	search_patterns = {
+		{ "impl", "<C-j>", true },
+		{ "impl", "<C-k>", false },
+		{ "mod", "<C-l>", false },
+	},
 })
 
 -- Latex
