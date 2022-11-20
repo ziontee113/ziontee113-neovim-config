@@ -4,6 +4,28 @@ local snippets, autosnippets, cs = {}, {}, require("luasnip-config.luasnip-utils
 
 -- Rust
 
+-- trait
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+pub trait {} {{
+    fn {}({}) {} {};
+}}
+]=],
+		{
+			i(1, "TraitName"),
+			i(2, "fn_name"),
+			i(3, "&self"),
+			i(4, ""),
+			i(5, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-k>t" },
+})
+
 -- TODO comment:
 cs({
 	trigger = "_trigger",

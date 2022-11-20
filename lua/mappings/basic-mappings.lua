@@ -2,6 +2,9 @@
 vim.keymap.set("n", "<C-S>", ":w<CR>")
 vim.keymap.set({ "i", "s" }, "<C-S>", "<Esc>:w<CR>")
 
+vim.keymap.set("n", "<A-;>", ":w<CR>")
+vim.keymap.set({ "i", "s" }, "<A-;>", "<Esc>:w<CR>")
+
 vim.keymap.set("n", "<C-0>", ":source Session.vim<CR>")
 
 -- Visual Mode
@@ -29,8 +32,8 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<Leader>q", ":q<cr>")
 vim.keymap.set("n", "<Leader><Leader>q", ":qa!<cr>")
 
--- Help Search
-vim.keymap.set("n", "<A-;>", ":vert help <C-r><C-w><CR>", {})
+-- -- Help Search
+-- vim.keymap.set("n", "<C-A-;>", ":vert help <C-r><C-w><CR>", {})
 
 -- Plugin Mappings
 
