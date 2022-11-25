@@ -58,35 +58,6 @@ cs({
 	keymaps = { "<C-d>d" },
 })
 
--- let match
-
-cs({
-	trigger = "_trigger",
-	nodes = fmt(
-		[=[
-let {} = match {} {{
-    Ok({}) => {},
-    Err({}) => {{
-        println!("{} {{:#?}}", {});
-        return;
-    }},
-}};
-]=],
-		{
-			i(1, ""),
-			i(2, ""),
-			i(3, "result"),
-			i(4, "result"),
-			i(5, "err"),
-			i(6, "error while "),
-			i(7, "err"),
-		}
-	),
-	target_table = snippets,
-	pattern = { "*.rs" },
-	keymaps = { "<C-L><C-M>" },
-})
-
 -- Print Debug
 
 cs({
@@ -120,6 +91,22 @@ println!("{} {{:#?}}", {})
 	keymaps = { "<C-J>p" },
 })
 
+-- Arc Mutex Type
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+Arc<Mutex<{}>>
+]=],
+		{
+			i(1, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-k>A" },
+})
+
 -- Arc Mutex
 cs({
 	trigger = "_trigger",
@@ -133,7 +120,7 @@ Arc::new(Mutex::new({}))
 	),
 	target_table = snippets,
 	pattern = { "*.rs" },
-	keymaps = { "<C-k>A" },
+	keymaps = { "<C-k>a" },
 })
 
 -- Variable Declaration

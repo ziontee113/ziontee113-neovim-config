@@ -5,10 +5,14 @@ sj.setup({
 })
 
 vim.keymap.set({ "n", "x" }, "s", function()
+	vim.cmd("norm! m'")
+
 	sj.run({})
 end)
 
 local function sj_multi_win()
+	vim.cmd("norm! m'")
+
 	vim.cmd("WindowsDisableAutowidth")
 
 	sj.run({ select_window = true })
