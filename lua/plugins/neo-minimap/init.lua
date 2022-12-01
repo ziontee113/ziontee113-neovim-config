@@ -1,7 +1,8 @@
 local nm = require("neo-minimap")
 
 nm.setup_defaults({
-	height_toggle = { 12, 36 },
+	-- height_toggle = { 12, 25 },
+	height_toggle = { 20, 25 },
 	hl_group = "DiagnosticWarn",
 })
 nm.source_on_save("/home/ziontee113/.config/nvim/lua/plugins/neo-minimap/")
@@ -29,6 +30,7 @@ nm.set({ "zi", "zo" }, "*.rs", {
 		{ "impl", "<C-k>", false },
 		{ "mod", "<C-l>", false },
 	},
+	height_toggle = { 20, 25 },
 })
 
 -- Latex

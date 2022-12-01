@@ -2,7 +2,49 @@
 ---@diagnostic disable-next-line: unused-local
 local snippets, autosnippets, cs = {}, {}, require("luasnip-config.luasnip-utils").create_snippet
 
+-- Project Specific
+
+-- IncomingFragment::new()
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+let {} = IncomingFragment::new("{}", {}, {}, mipoch({}));
+]=],
+		{
+			i(1, "fragment"),
+			i(2, "L1"),
+			i(3, "32"),
+			i(4, "1"),
+			i(5, "0"),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-j><C-k>" },
+})
+
 -- Rust
+
+-- enum
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+{}enum {} {{
+    {}
+}}
+]=],
+		{
+			c(1, { t("pub "), t("") }),
+			i(2, "EnumName"),
+			i(3, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-k>e" },
+})
 
 -- trait
 cs({
@@ -138,7 +180,7 @@ let {} = {};
 	),
 	target_table = snippets,
 	pattern = { "*.rs" },
-	keymaps = { "<C-J><C-K>", "<C-L><C-L>" },
+	keymaps = { "<C-L><C-L>" },
 })
 
 -- Test Macro
@@ -174,13 +216,12 @@ cs({
 		[=[
 #[test]
 fn {}() {{
-    assert_eq!({}, {});
+    {}
 }}
 ]=],
 		{
 			i(1, "test_fn_name"),
-			i(2, "left_side"),
-			i(3, "right_side"),
+			i(2, "// TODO: "),
 		}
 	),
 	target_table = snippets,
@@ -208,6 +249,26 @@ for {} in {} {{
 	keymaps = { "<C-f>o" },
 })
 
+-- For Loop with Enumerate
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+for {} in {}.iter().enumerate() {{
+    {}
+}}
+]=],
+		{
+			i(1, ""),
+			i(2, ""),
+			i(3, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-f>e" },
+})
+
 -- Function
 
 cs({
@@ -219,7 +280,7 @@ cs({
 }}
 ]=],
 		{
-			c(1, { t(""), t("pub ") }),
+			c(1, { t("pub "), t("") }),
 			i(2, "fn_name"),
 			c(3, { i(1, ""), i(1, "&self") }),
 			c(4, {
@@ -258,7 +319,7 @@ cs({
 {}struct {}{}
 ]=],
 		{
-			c(1, { i(1, ""), t("pub ") }),
+			c(1, { t("pub "), i(1, "") }),
 			i(2, "StructName"),
 			c(3, { t(";"), _struct_fmt }),
 		}
