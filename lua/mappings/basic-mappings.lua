@@ -1,3 +1,6 @@
+-- Insert Mode Mappings
+vim.keymap.set({ "i", "s" }, "<A-m>", "_")
+
 -- Vim Mappings
 vim.keymap.set("n", "<C-S>", ":w<CR>")
 vim.keymap.set({ "i", "s" }, "<C-S>", "<Esc>:w<CR>")

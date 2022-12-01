@@ -226,7 +226,7 @@ fn {}() {{
 	),
 	target_table = snippets,
 	pattern = { "*.rs" },
-	keymaps = { "<C-t>f" },
+	keymaps = { "<C-t>f", "<C-l><C-j>" },
 })
 
 -- For Loop
