@@ -19,7 +19,7 @@ function M.create_snippet(opts)
 			end
 
 			if type(keymap) == "string" then
-				keymap = { "i", keymap }
+				keymap = { { "i", "s" }, keymap }
 			end
 
 			vim.api.nvim_create_autocmd("BufEnter", {

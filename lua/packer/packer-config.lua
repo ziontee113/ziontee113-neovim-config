@@ -182,4 +182,7 @@ return require("packer").startup(function(use)
 	use({ "nvim-neotest/neotest" })
 	use("nvim-neotest/neotest-plenary")
 	use("rouge8/neotest-rust")
+
+	-- Goto Preview
+	use("rmagatti/goto-preview")
 end)

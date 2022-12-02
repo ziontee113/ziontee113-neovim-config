@@ -1,5 +1,6 @@
 -- Insert Mode Mappings
 vim.keymap.set({ "i", "s" }, "<A-m>", "_")
+vim.keymap.set({ "i", "s" }, "<A-/>", "_")
 
 -- Vim Mappings
 vim.keymap.set("n", "<C-S>", ":w<CR>")
@@ -32,6 +33,7 @@ vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 
+vim.keymap.set("n", "Q", ":q<cr>")
 vim.keymap.set("n", "<Leader>q", ":q<cr>")
 vim.keymap.set("n", "<Leader><Leader>q", ":qa!<cr>")
 

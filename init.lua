@@ -38,6 +38,9 @@ require("plugins.gomove")
 -- Mini.nvim
 require("mini.ai").setup() -- targets.vim
 
+-- Goto Preview
+require("plugins.goto-preview")
+
 -- Mappings
 require("mappings.basic-mappings")
 require("mappings.paragraph-jumping")

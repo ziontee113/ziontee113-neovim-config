@@ -102,11 +102,11 @@ require("lsp-inlayhints").setup()
 local rt = require("rust-tools")
 
 rt.setup({
-	-- tools = {
-	-- 	inlay_hints = {
-	-- 		auto = false,
-	-- 	},
-	-- },
+	tools = {
+		inlay_hints = {
+			auto = false,
+		},
+	},
 	server = {
 		on_attach = on_attach,
 		settings = {

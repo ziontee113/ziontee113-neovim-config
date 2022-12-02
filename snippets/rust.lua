@@ -4,6 +4,20 @@ local snippets, autosnippets, cs = {}, {}, require("luasnip-config.luasnip-utils
 
 -- Project Specific
 
+-- #[cfg(test)]
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+#[cfg(test)]
+]=],
+		{}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-l><C-t>" },
+})
+
 -- IncomingFragment::new()
 cs({
 	trigger = "_trigger",
@@ -221,7 +235,7 @@ fn {}() {{
 ]=],
 		{
 			i(1, "test_fn_name"),
-			i(2, "// TODO: "),
+			i(2, ""),
 		}
 	),
 	target_table = snippets,
