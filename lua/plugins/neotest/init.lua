@@ -20,7 +20,7 @@ vim.keymap.set("n", "tt", function()
 end, {})
 
 vim.keymap.set("n", "to", function()
-	neotest.output.open({ enter = true }) -- output window
+	neotest.output.open({ enter = true, short = true }) -- output window
 end, {})
 
 vim.keymap.set("n", "TT", function()

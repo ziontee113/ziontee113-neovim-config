@@ -4,6 +4,44 @@ local snippets, autosnippets, cs = {}, {}, require("luasnip-config.luasnip-utils
 
 -- Project Specific
 
+-- if statement
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+if {} {{
+    {}
+}}
+]=],
+		{
+			i(1, ""),
+			i(2, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-j><C-i>" },
+})
+
+-- match statement
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+match {} {{
+    {}
+}}
+]=],
+		{
+			i(1, ""),
+			i(2, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-k><C-m>" },
+})
+
 -- #[cfg(test)]
 cs({
 	trigger = "_trigger",
@@ -203,7 +241,7 @@ cs({
 	nodes = fmt(
 		[=[
 #[cfg(test)]
-mod {} {{
+mod {}_test {{
     use super::*;
 
     #[test]
@@ -213,7 +251,7 @@ mod {} {{
 }}
 ]=],
 		{
-			i(1, "test"),
+			i(1, "module"),
 			i(2, "test_fn_name"),
 			i(3, "expression"),
 		}

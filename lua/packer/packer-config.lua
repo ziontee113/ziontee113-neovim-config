@@ -185,4 +185,7 @@ return require("packer").startup(function(use)
 
 	-- Goto Preview
 	use("rmagatti/goto-preview")
+
+	-- Fugitive
+	use("tpope/vim-fugitive")
 end)
