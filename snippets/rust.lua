@@ -158,7 +158,7 @@ cs({
 	trigger = "_trigger",
 	nodes = fmt(
 		[=[
-println!("{}")
+println!("{}");
 ]=],
 		{
 			i(1, ""),
