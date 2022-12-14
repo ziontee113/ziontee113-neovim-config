@@ -68,8 +68,13 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set("n", "<a-m>", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, bufopts)
+
 	vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set("n", "<A-,>", vim.lsp.buf.code_action, bufopts)
+
+	vim.keymap.set("x", "<space>ca", vim.lsp.buf.code_action, bufopts)
+	vim.keymap.set("x", "<A-,>", vim.lsp.buf.code_action, bufopts)
+
 	vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", bufopts)
 	vim.keymap.set("n", "<space>f", function()
 		vim.lsp.buf.format({ async = true })

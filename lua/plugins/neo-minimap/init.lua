@@ -52,6 +52,9 @@ nm.set({ "zi", "zo", "zu" }, "*.lua", {
 	query = {
 		[[
     ;; query
+    ;; ((function_declaration name: ((identifier) @name (#eq? @name "{cursorword}"))) @cap)
+    ;; ((function_call name: ((identifier) @name (#eq? @name "{cursorword}"))) @cap)
+    ;; ((dot_index_expression field: ((identifier) @name (#eq? @name "{cursorword}"))) @cap)
     ((function_declaration) @cap)
     ((assignment_statement(expression_list((function_definition) @cap))))
     ]],
@@ -97,7 +100,7 @@ nm.set({ "zi", "zo", "zu" }, "*.lua", {
 	-- open_win_opts = { border = "double" },
 	win_opts = { scrolloff = 1 },
 
-	-- disable_indentaion = true,
+	disable_indentaion = true,
 })
 
 -- Typescript React
