@@ -56,27 +56,21 @@ cs({
 	keymaps = { "<C-l><C-t>" },
 })
 
--- IncomingFragment::new()
+-- stringify!
 cs({
 	trigger = "_trigger",
 	nodes = fmt(
 		[=[
-let {} = IncomingFragment::new("{}", {}, {}, mipoch({}));
+stringify!({})
 ]=],
 		{
-			i(1, "fragment"),
-			i(2, "L1"),
-			i(3, "32"),
-			i(4, "1"),
-			i(5, "0"),
+			i(1, ""),
 		}
 	),
 	target_table = snippets,
 	pattern = { "*.rs" },
 	keymaps = { "<C-j><C-k>" },
 })
-
--- Rust
 
 -- enum
 cs({
@@ -125,10 +119,10 @@ cs({
 	trigger = "_trigger",
 	nodes = fmt(
 		[=[
-// TODO: {}
+{}
 ]=],
 		{
-			i(1, ""),
+			c(1, { fmt("// TODO: {}", { i(1, "") }), t("todo!();") }),
 		}
 	),
 	target_table = snippets,
@@ -154,14 +148,32 @@ cs({
 
 -- Print Debug
 
+local fmt_println_str_only = fmt(
+	[=[
+println!("{}");
+]=],
+	{
+		i(1, ""),
+	}
+)
+
+local fmt_println_1_arg = fmt(
+	[=[
+println("{{}}", {});
+]=],
+	{
+		i(1, ""),
+	}
+)
+
 cs({
 	trigger = "_trigger",
 	nodes = fmt(
 		[=[
-println!("{}");
+{}
 ]=],
 		{
-			i(1, ""),
+			c(1, { fmt_println_1_arg, fmt_println_str_only }),
 		}
 	),
 	target_table = snippets,

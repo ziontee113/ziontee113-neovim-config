@@ -64,6 +64,11 @@ require("icon-picker").setup({
 vim.keymap.set("i", "<A-i>", "<cmd>IconPickerInsert<cr>", {})
 vim.keymap.set("n", "<Leader><Leader>i", "<cmd>IconPickerNormal<cr>", {})
 
+-- Tree Hopper
+vim.keymap.set("n", "vm", function()
+	require("tsht").nodes()
+end, {})
+
 -- NeoTest
 require("plugins.neotest")
 

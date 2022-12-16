@@ -40,8 +40,8 @@ end
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
-vim.keymap.set("n", "}", diag_next)
-vim.keymap.set("n", "{", diag_prev)
+vim.keymap.set("n", "<A-j>", diag_next)
+vim.keymap.set("n", "<A-k>", diag_prev)
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 
 -- Use an on_attach function to only map the following keys

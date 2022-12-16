@@ -179,7 +179,7 @@ return require("packer").startup(function(use)
 	use({ "woosaaahh/sj.nvim", branch = "0.6" })
 
 	-- Neotest
-	use({ "nvim-neotest/neotest" })
+	use({ "nvim-neotest/neotest", commit = "a2424711213bf8c0c1afe81f5ffafb34c4f2da83" })
 	use("nvim-neotest/neotest-plenary")
 	use("rouge8/neotest-rust")
 
@@ -189,4 +189,7 @@ return require("packer").startup(function(use)
 	-- Fugitive
 	use("tpope/vim-fugitive")
 	use("tpope/vim-rhubarb")
+
+	-- Tree Hopper
+	use("mfussenegger/nvim-treehopper")
 end)

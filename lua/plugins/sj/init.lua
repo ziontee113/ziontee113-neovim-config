@@ -10,6 +10,12 @@ vim.keymap.set({ "n", "x" }, "s", function()
 	sj.run({})
 end)
 
+vim.keymap.set("n", "<A-n>", function()
+	vim.cmd("norm! m'")
+	sj.run({})
+	vim.cmd("norm vx")
+end)
+
 local function sj_multi_win()
 	vim.cmd("norm! m'")
 
