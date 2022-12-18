@@ -83,8 +83,15 @@ cmp.setup({
 	sources = {
 		{ name = "luasnip" },
 		{ name = "path" },
-		{ name = "nvim_lsp" },
+		{
+			name = "nvim_lsp",--[[ , keyword_length = 2, max_item_count = 20 ]]
+		},
 	},
+	-- performance = {
+	-- 	trigger_debounce_time = 500,
+	-- 	throttle = 550,
+	-- 	fetching_timeout = 80,
+	-- },
 })
 
 -- keymaps

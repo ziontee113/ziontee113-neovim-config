@@ -1,3 +1,6 @@
+-- Rust WASM
+vim.api.nvim_set_keymap("n", "<F7>", "vi{:! prettier --parser html --stdin-filepath<CR>vi{>", { noremap = true })
+
 -- Insert Mode Mappings
 vim.keymap.set({ "i", "s" }, "<A-m>", "_")
 vim.keymap.set({ "i", "s" }, "<A-/>", "_")

@@ -159,7 +159,7 @@ println!("{}");
 
 local fmt_println_1_arg = fmt(
 	[=[
-println("{{}}", {});
+println!("{{}}", {});
 ]=],
 	{
 		i(1, ""),
@@ -173,12 +173,27 @@ cs({
 {}
 ]=],
 		{
+			c(1, { vim.deepcopy(fmt_println_str_only), vim.deepcopy(fmt_println_1_arg) }),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = { "<C-J><C-o>" },
+})
+
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+{}
+]=],
+		{
 			c(1, { fmt_println_1_arg, fmt_println_str_only }),
 		}
 	),
 	target_table = snippets,
 	pattern = { "*.rs" },
-	keymaps = { "<C-J><C-P>" },
+	keymaps = { "<C-J><C-p>" },
 })
 
 cs({

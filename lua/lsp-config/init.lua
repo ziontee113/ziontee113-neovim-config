@@ -175,8 +175,43 @@ require("typescript").setup({
 	},
 })
 
--- Tailwind CSS
-lspconfig.tailwindcss.setup({})
+-- -- Tailwind CSS -- too slow
+-- lspconfig.tailwindcss.setup({
+-- 	capabilities = capabilities,
+-- 	init_options = {
+-- 		userLanguages = {
+-- 			rust = "rust",
+-- 		},
+-- 	},
+-- 	settings = {
+-- 		-- https://github.com/tailwindlabs/tailwindcss-intellisense/tree/6b3e598e5378812b42db8a208db4980c82b60a10/packages/vscode-tailwindcss#tailwindcssincludelanguages
+-- 		includeLanguages = {
+-- 			rust = "html",
+-- 			["*.rs"] = "html",
+-- 		},
+-- 		tailwindCSS = {
+-- 			emmetCompletions = true,
+-- 			experimental = {
+-- 				classRegex = {
+-- 					-- [[class= "([^"]*)]],
+-- 					-- [[class: "([^"]*)]],
+-- 					-- '~H""".*class="([^"]*)".*"""',
+-- 					-- [=["view!\\[\"([^\\]]+)\"\\]"]=],
+-- 					-- 'view!\\["([^\\]]+)"\\]',
+-- 					[[class="([^"]*)]],
+-- 					-- 'class=\\s+"([^"]*)',
+-- 				},
+-- 			},
+-- 			validate = true,
+-- 		},
+-- 	},
+-- 	filetypes = {
+-- 		"css",
+-- 		"html",
+-- 		"rust",
+-- 		["*.rs"] = "html",
+-- 	},
+-- })
 
 -- Emmet
 
