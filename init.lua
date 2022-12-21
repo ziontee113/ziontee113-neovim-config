@@ -72,6 +72,15 @@ end, {})
 -- NeoTest
 require("plugins.neotest")
 
+-- Learn Nvim_Oxi
+vim.cmd([[set runtimepath+=~/.config/nvim-custom-plugin/gem-cutter/]])
+require("gem-cutter")
+
+vim.keymap.set("n", "<A-r>", function()
+	RELOAD("gem-cutter")
+	require("gem-cutter")
+end, {})
+
 --------------------------------------- MESS DOWN HERE
 ---------------------------------------
 ---------------------------------------

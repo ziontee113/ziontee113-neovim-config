@@ -4,7 +4,7 @@ end
 
 local function test_func()
 	local params = vim.lsp.util.make_position_params()
-	-- N(params.position)
+	N(params.position)
 
 	local lsp_call = "textDocument/references"
 	local success, _ = pcall(vim.lsp.buf_request, 0, lsp_call, params, function(_, results, _, _)
@@ -15,7 +15,7 @@ local function test_func()
 	end
 end
 
-vim.keymap.set("n", "zi", function()
+vim.keymap.set("n", "zp", function()
 	test_func()
 end, {})
 

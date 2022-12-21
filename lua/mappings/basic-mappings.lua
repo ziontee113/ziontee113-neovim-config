@@ -1,3 +1,13 @@
+-- ThePrimeagen
+vim.keymap.set("n", "J", "mzJ`z", {})
+vim.keymap.set("n", "<C-d>", "<C-d>zz", {})
+vim.keymap.set("n", "<C-u>", "<C-u>zz", {})
+vim.keymap.set("n", "n", "nzzzv", {})
+vim.keymap.set("n", "N", "Nzzzv", {})
+vim.keymap.set("x", "<A-p>", '"_dP', {})
+vim.keymap.set("x", "<", "<gv", {})
+vim.keymap.set("x", ">", ">gv", {})
+
 -- Rust WASM
 vim.api.nvim_set_keymap("n", "<F7>", "vi{:! prettier --parser html --stdin-filepath<CR>vi{>", { noremap = true })
 
