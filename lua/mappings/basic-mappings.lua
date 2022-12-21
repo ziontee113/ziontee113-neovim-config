@@ -1,3 +1,12 @@
+-- Text Objects
+vim.cmd([[
+    nmap <C-k><C-k> ciq
+    nmap <C-k><C-j> cilq
+    nmap <C-k><C-h> c2ilq
+    nmap <C-k><C-l> cinq
+    nmap <C-k><C-;> c2inq
+]])
+
 -- ThePrimeagen
 vim.keymap.set("n", "J", "mzJ`z", {})
 vim.keymap.set("n", "<C-d>", "<C-d>zz", {})
