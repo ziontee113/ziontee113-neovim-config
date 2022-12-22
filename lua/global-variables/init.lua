@@ -24,9 +24,9 @@ KS = function(mode, keys, callback)
 	end
 end
 
-FEED = function(mapping)
+FEED = function(mapping, mode)
 	local key = vim.api.nvim_replace_termcodes(mapping, true, false, true)
-	vim.api.nvim_feedkeys(key, "n", false)
+	vim.api.nvim_feedkeys(key, mode or "nx", false)
 end
 
 -- {{{nvim-execute-on-save}}}
