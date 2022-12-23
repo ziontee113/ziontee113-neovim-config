@@ -150,6 +150,27 @@ let [{}, {}] = useState({});
 	keymaps = { "<C-U><C-S>" },
 })
 
+-- useCallbackHook
+cs({
+	trigger = "_trigger",
+	nodes = fmt(
+		[=[
+const {} = useCallback(({}) => {{
+    {}
+}}, [{}]);
+]=],
+		{
+			i(1, "name"),
+			i(2, ""),
+			i(3, "// TODO:"),
+			i(4, ""),
+		}
+	),
+	target_table = snippets,
+	pattern = { "*.tsx" },
+	keymaps = { "<C-u><C-c>" },
+})
+
 -- useEffect Hook
 cs({
 	trigger = "_trigger",

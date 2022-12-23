@@ -65,8 +65,10 @@ vim.keymap.set("i", "<A-i>", "<cmd>IconPickerInsert<cr>", {})
 vim.keymap.set("n", "<Leader><Leader>i", "<cmd>IconPickerNormal<cr>", {})
 
 -- Tree Hopper
+local tree_hopper = require("tsht")
+tree_hopper.config.ft_to_parser.typescriptreact = "tsx"
 vim.keymap.set("n", "vm", function()
-	require("tsht").nodes()
+	tree_hopper.nodes()
 end, {})
 
 -- NeoTest

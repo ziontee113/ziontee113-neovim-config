@@ -175,6 +175,9 @@ require("typescript").setup({
 	},
 })
 
+-- Tailwind defaults
+lspconfig.tailwindcss.setup({})
+
 -- -- Tailwind CSS -- too slow
 -- lspconfig.tailwindcss.setup({
 -- 	capabilities = capabilities,

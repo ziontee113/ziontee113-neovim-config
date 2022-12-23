@@ -27,6 +27,12 @@ vim.keymap.set("n", "<A-S-y>", function()
 	FEED("vny<C-o>", "m")
 end)
 
+vim.keymap.set("n", "<A-d>", function()
+	jump()
+	FEED("vxD<C-o>", "m")
+end)
+
+--------------
 local function sj_multi_win()
 	vim.cmd("norm! m'")
 	vim.cmd("WindowsDisableAutowidth")

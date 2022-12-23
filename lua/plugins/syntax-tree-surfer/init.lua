@@ -25,6 +25,11 @@ end, { silent = true, expr = true })
 vim.keymap.set("n", "vx", "<cmd>STSSelectMasterNode<cr>")
 vim.keymap.set("n", "vn", "<cmd>STSSelectCurrentNode<cr>")
 
+-- wild
+vim.keymap.set("n", "H", function()
+	FEED("vxD")
+end)
+
 -- Select Nodes in Visual Mode
 vim.keymap.set("x", "J", "<cmd>STSSelectNextSiblingNode<cr>")
 vim.keymap.set("x", "K", "<cmd>STSSelectPrevSiblingNode<cr>")
@@ -141,3 +146,5 @@ require("syntax-tree-surfer").setup({
 		["variable_declaration"] = "",
 	},
 })
+
+-- {{{nvim-execute-on-save}}}
