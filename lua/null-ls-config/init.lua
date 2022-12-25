@@ -3,7 +3,9 @@ local formatting = null_ls.builtins.formatting
 
 null_ls.setup({
 	sources = {
-		formatting.prettierd,
+		formatting.prettierd.with({
+			extra_filetypes = { "svelte" },
+		}),
 		formatting.stylua,
 		formatting.rustfmt,
 		formatting.black,

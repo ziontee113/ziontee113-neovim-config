@@ -15,7 +15,7 @@ local lsp_formatting = function(bufnr)
 	vim.lsp.buf.format({
 		bufnr = bufnr,
 		filter = function(client)
-			return client.name == "null-ls"
+			return client.name == "null-ls" or client.name == "svelte"
 		end,
 	})
 
@@ -135,8 +135,10 @@ rt.setup({
 -- cssls
 
 lspconfig["cssls"].setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
+	server = {
+		on_attach = on_attach,
+		capabilities = capabilities,
+	},
 })
 
 -- TypeScript Server
@@ -173,6 +175,11 @@ require("typescript").setup({
 		-- 	},
 		-- },
 	},
+})
+
+-- Svelte defaults
+lspconfig.svelte.setup({
+	on_attach = on_attach,
 })
 
 -- Tailwind defaults
