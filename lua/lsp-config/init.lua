@@ -180,6 +180,7 @@ require("typescript").setup({
 -- Svelte defaults
 lspconfig.svelte.setup({
 	on_attach = on_attach,
+	capabilities = vim.lsp.protocol.make_client_capabilities(),
 })
 
 -- Tailwind defaults

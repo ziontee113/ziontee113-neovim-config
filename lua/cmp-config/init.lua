@@ -83,9 +83,7 @@ cmp.setup({
 	sources = {
 		{ name = "luasnip" },
 		{ name = "path" },
-		{
-			name = "nvim_lsp",--[[ , keyword_length = 2, max_item_count = 20 ]]
-		},
+		{ name = "nvim_lsp" },
 	},
 	-- performance = {
 	-- 	trigger_debounce_time = 500,

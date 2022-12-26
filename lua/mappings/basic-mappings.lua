@@ -28,6 +28,8 @@ vim.keymap.set({ "i", "s" }, "<A-/>", "_")
 vim.keymap.set("n", "<C-S>", ":w<CR>")
 vim.keymap.set({ "i", "s" }, "<C-S>", "<Esc>:w<CR>")
 
+vim.keymap.set("n", "<F9>", ":wa<CR>")
+
 vim.keymap.set("n", "<C-;>", ":w<CR>")
 vim.keymap.set({ "i", "s" }, "<C-;>", "<Esc>:w<CR>")
 

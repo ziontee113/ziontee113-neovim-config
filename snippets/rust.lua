@@ -4,6 +4,21 @@ local snippets, autosnippets, cs = {}, {}, require("luasnip-config.luasnip-utils
 
 -- Project Specific
 
+cs({
+	trigger = "pedantic",
+	nodes = fmt(
+		[=[
+#![allow(dead_code)]
+#![warn(clippy::pedantic)]
+
+]=],
+		{}
+	),
+	target_table = snippets,
+	pattern = { "*.rs" },
+	keymaps = {},
+})
+
 -- if statement
 cs({
 	trigger = "_trigger",
@@ -350,6 +365,16 @@ for {} in {}.iter().enumerate() {{
 
 -- Function
 
+local fn_name_with_generic_fmt = fmt(
+	[=[
+{}<{}>
+]=],
+	{
+		i(1, "fn_name"),
+		i(2, "T"),
+	}
+)
+
 cs({
 	trigger = "_trigger",
 	nodes = fmt(
@@ -360,7 +385,7 @@ cs({
 ]=],
 		{
 			c(1, { t("pub "), t("") }),
-			i(2, "fn_name"),
+			c(2, { i(1, "fn_name"), fn_name_with_generic_fmt }),
 			c(3, { i(1, ""), i(1, "&self") }),
 			c(4, {
 				i(1, ""),

@@ -92,9 +92,9 @@ require("nvim-treesitter.configs").setup({
 		},
 	},
 
-	markid = {
-		enable = true,
-		colors = markit.colors.medium,
-		queries = markit.queries,
-	},
+	-- markid = {
+	-- 	enable = true,
+	-- 	colors = markit.colors.medium,
+	-- 	queries = markit.queries,
+	-- },
 })
