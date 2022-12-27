@@ -4,10 +4,11 @@ neotest.setup({
 	-- log_level = vim.log.levels.DEBUG,
 	adapters = {
 		require("neotest-plenary"),
-		require("neotest-vitest"),
+		-- require("neotest-vitest"),
 		require("neotest-rust")({
 			args = { "--no-capture" },
 		}),
+		require("neotest-go"),
 	},
 })
 

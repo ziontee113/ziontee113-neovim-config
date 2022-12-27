@@ -283,7 +283,7 @@ cs({
 	nodes = fmt(
 		[=[
 #[cfg(test)]
-mod {}_test {{
+mod {}_module_test {{
     use super::*;
 
     #[test]

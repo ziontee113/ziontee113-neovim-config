@@ -17,6 +17,13 @@ return require("packer").startup(function(use)
 		run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 	})
 
+	use({
+		"AckslD/nvim-neoclip.lua",
+		requires = {
+			{ "kkharji/sqlite.lua", module = "sqlite" },
+		},
+	})
+
 	-- File Browser
 	use({
 		"nvim-neo-tree/neo-tree.nvim",
@@ -184,6 +191,7 @@ return require("packer").startup(function(use)
 	use("nvim-neotest/neotest-plenary")
 	use("rouge8/neotest-rust")
 	use("marilari88/neotest-vitest")
+	use("nvim-neotest/neotest-go")
 
 	-- Goto Preview
 	use("rmagatti/goto-preview")

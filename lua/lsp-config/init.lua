@@ -267,3 +267,9 @@ lspconfig["sumneko_lua"].setup({
 		},
 	},
 })
+
+-- Golang
+lspconfig.gopls.setup({
+	on_attach = on_attach,
+	capabilities = vim.lsp.protocol.make_client_capabilities(),
+})

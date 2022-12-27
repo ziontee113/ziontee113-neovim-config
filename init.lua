@@ -12,6 +12,7 @@ require("settings.colorscheme")
 
 -- File Navigation
 require("plugins.telescope.telescope-config")
+require("plugins.neoclip")
 
 -- Intelligent Code Interaction
 require("lsp-config")
